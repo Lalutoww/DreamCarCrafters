@@ -1,7 +1,8 @@
-export default function Footer() {
+import styles from './Footer.module.css';
+const Footer = () => {
    return (
-      <footer>
-         <p>&copy; 2023 Lalutoww</p>
-      </footer>
+      <footer className={styles.footer}>&copy; 2023 Lalutoww / Dream Car Crafters</footer>
    );
-}
+};
+
+export default Footer;
