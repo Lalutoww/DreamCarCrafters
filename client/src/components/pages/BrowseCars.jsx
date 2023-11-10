@@ -27,6 +27,7 @@ const BrowseCars = () => {
 
    return (
       <>
+         <div className={styles['header']}><h1>Car Catalogue</h1></div>
          <section id="viewCatalog" className={styles['background-img']}>
             <div className={styles['added-cars']}>
                {allCars.map((car) => (

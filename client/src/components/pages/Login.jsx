@@ -27,37 +27,40 @@ const Login = () => {
       setFormValues(formInitialState);
    };
    return (
-      <section className={styles['login-page']} id="loginPage">
-         <form
-            onSubmit={submitHandler}
-            className={styles['login-form']}
-            id="loginForm"
-            action="#"
-            method=""
-         >
-            <label htmlFor="email">Email:</label>
-            <input
-               type="text"
-               id="email"
-               name="email"
-               value={formValues.email}
-               onChange={changeHandler}
-               placeholder="Email"
-            />
+      <>
+         <div className={styles['header']}><h1>Login</h1></div>
+         <section className={styles['login-page']} id="loginPage">
+            <form
+               onSubmit={submitHandler}
+               className={styles['login-form']}
+               id="loginForm"
+               action="#"
+               method=""
+            >
+               <label htmlFor="email">Email:</label>
+               <input
+                  type="text"
+                  id="email"
+                  name="email"
+                  value={formValues.email}
+                  onChange={changeHandler}
+                  placeholder="Email"
+               />
 
-            <label htmlFor="password">Password:</label>
-            <input
-               type="password"
-               id="password"
-               name="password"
-               value={formValues.password}
-               onChange={changeHandler}
-               placeholder="Password"
-            />
+               <label htmlFor="password">Password:</label>
+               <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  value={formValues.password}
+                  onChange={changeHandler}
+                  placeholder="Password"
+               />
 
-            <input type="submit" className={styles['register']} />
-         </form>
-      </section>
+               <input type="submit" className={styles['register']} />
+            </form>
+         </section>
+      </>
    );
 };
 
