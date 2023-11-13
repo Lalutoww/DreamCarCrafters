@@ -1,5 +1,6 @@
 .header {
    background-color: rgba(0, 0, 0, 0.8);
+   /* border-radius: 35px; */
    color: #fff;
 }
 
@@ -10,37 +11,41 @@
    color: white;
    -webkit-text-stroke: 2px black;
 }
-
-.register-page {
+.create-page {
    text-align: center;
    margin-top: 5px;
    position: relative;
    padding-bottom: 6px;
 }
-
-.register-form {
+.create-form {
    padding-top: 1%;
    display: inline-block;
+   align-items: center;
    margin-top: 1%;
    background: rgba(0, 0, 0, 0.703);
    width: 60%;
    border: 1px solid white;
    border-radius: 20px;
 }
-
 label {
    margin-top: 20px;
    margin-bottom: 20px;
    color: white;
    font-weight: bold;
 }
- input {
+
+input {
    background: white;
    border: 1px solid black;
    border-radius: 10px;
    font-size: 16px;
 }
- input[type='submit'] {
+.description {
+   width: 460px;
+   height: 100px;
+}
+
+input[type='submit'] {
    margin-top: 5%;
    margin-bottom: 5%;
    width: 40%;

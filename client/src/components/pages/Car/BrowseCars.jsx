@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import styles from './BrowseCars.module.css';
-import * as carService from '../../services/carService.js';
+import * as carService from '../../../services/carService.js';
 
 import CarElement from './CarElement.jsx';
 const BrowseCars = () => {
@@ -22,7 +22,7 @@ const BrowseCars = () => {
       }
    }, [allCars]);
    if (showNoCars) {
-      return <div className={styles['guest']}>There are no cars for sale!</div>;
+      return <div className={styles['no-cars']}>There are no cars for sale!</div>;
    }
 
    return (

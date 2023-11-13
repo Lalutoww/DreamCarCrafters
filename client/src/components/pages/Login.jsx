@@ -57,7 +57,7 @@ const Login = () => {
                   placeholder="Password"
                />
 
-               <input type="submit" className={styles['register']} />
+               <input type="submit"/>
             </form>
          </section>
       </>
