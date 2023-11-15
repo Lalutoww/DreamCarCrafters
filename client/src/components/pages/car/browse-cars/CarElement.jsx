@@ -1,12 +1,14 @@
-const CarElement = ({ manufacturer, model, price, styles, imageUrl }) => {
+import { Link } from 'react-router-dom';
+
+const CarElement = ({ manufacturer, model, price, styles, imageUrl, id }) => {
    return (
-      <a href="#" className={styles['added-cars-in-market']}>
+      <Link to={`/cars/details/${id}`} className={styles['added-cars-in-market']}>
          <img src={imageUrl} className={styles['picture-added-cars']} />
          <h3>
             {manufacturer} {model}
          </h3>
          <span>Price: ${price}</span>
-      </a>
+      </Link>
    );
 };
 export default CarElement;

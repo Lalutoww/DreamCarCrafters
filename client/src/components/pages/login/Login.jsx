@@ -28,14 +28,15 @@ const Login = () => {
    };
    return (
       <>
-         <div className={styles['header']}><h1>Login</h1></div>
+         <div className={styles['header']}>
+            <h1>Login</h1>
+         </div>
          <section className={styles['login-page']} id="loginPage">
             <form
                onSubmit={submitHandler}
                className={styles['login-form']}
                id="loginForm"
-               action="#"
-               method=""
+               method="POST"
             >
                <label htmlFor="email">Email:</label>
                <input
@@ -57,7 +58,7 @@ const Login = () => {
                   placeholder="Password"
                />
 
-               <input type="submit"/>
+               <input type="submit" />
             </form>
          </section>
       </>

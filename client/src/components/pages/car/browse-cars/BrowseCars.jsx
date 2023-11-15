@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import styles from './BrowseCars.module.css';
-import * as carService from '../../../services/carService.js';
-
+import * as carService from '../../../../services/carService.js';
 import CarElement from './CarElement.jsx';
+
 const BrowseCars = () => {
    const [allCars, setAllCars] = useState([]);
    const [showNoCars, setShowNoCars] = useState(false);
@@ -22,17 +22,22 @@ const BrowseCars = () => {
       }
    }, [allCars]);
    if (showNoCars) {
-      return <div className={styles['no-cars']}>There are no cars for sale!</div>;
+      return (
+         <div className={styles['no-cars']}>There are no cars for sale!</div>
+      );
    }
 
    return (
       <>
-         <div className={styles['header']}><h1>Car Catalogue</h1></div>
+         <div className={styles['header']}>
+            <h1>Car Catalogue</h1>
+         </div>
          <section id="viewCatalog" className={styles['background-img']}>
             <div className={styles['added-cars']}>
                {allCars.map((car) => (
                   <CarElement
                      key={car._id}
+                     id={car._id}
                      manufacturer={car.manufacturer}
                      model={car.model}
                      price={car.price}

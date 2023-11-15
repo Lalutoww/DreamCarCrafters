@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import styles from './MyGarage.module.css';
-import * as carService from '../../../services/carService.js';
+import * as carService from '../../../../services/carService.js';
 import MyCarElement from './MyCarElement.jsx';
 
 const MyGarage = () => {
