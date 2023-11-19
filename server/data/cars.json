@@ -5,12 +5,13 @@
       "model": "406",
       "year": "2000",
       "color": "Silver",
+      "engine": "2.0 HDI",
+      "horsepower": "110",
       "price": "4,500",
       "description": "This Peugeot 406 is a well-maintained sedan from the year 2003. It comes in an elegant silver color, has low mileage for its age, and is available for sale at a competitive price. The car features a reliable engine and offers a comfortable and spacious interior, making it an excellent choice for daily commuting or long trips. Please contact us for more details or to arrange a test drive.",
       "createdAt": "2023-11-01T07:22:00.358Z",
       "updatedAt": "2023-11-01T07:22:00.358Z",
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Peugeot_406_2003.jpg/1200px-Peugeot_406_2003.jpg",
-      "accessories": []
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Peugeot_406_2003.jpg/1200px-Peugeot_406_2003.jpg"
    },
 
    "07f260f4-466c-4607-9a33-f7273b24f1b5": {
@@ -19,11 +20,12 @@
       "model": "406",
       "year": "2001",
       "color": "Silver",
+      "engine": "2.0 HDI",
+      "horsepower": "110",
       "price": "4,500",
       "description": "This Peugeot 406 is a well-maintained sedan from the year 2003. It comes in an elegant silver color, has low mileage for its age, and is available for sale at a competitive price. The car features a reliable engine and offers a comfortable and spacious interior, making it an excellent choice for daily commuting or long trips. Please contact us for more details or to arrange a test drive.",
       "createdAt": "2023-11-01T07:22:00.358Z",
       "updatedAt": "2023-11-01T07:22:00.358Z",
-      "imageUrl": "https://www.classicdriver.com/sites/default/files/cars_images/248_001.jpg",
-      "accessories": []
+      "imageUrl": "https://www.classicdriver.com/sites/default/files/cars_images/248_001.jpg"
    }
 }

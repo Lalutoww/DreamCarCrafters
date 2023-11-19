@@ -1,31 +1,13 @@
-import { useState } from 'react';
+import { useForm } from '../../../hooks/useForm.js';
 import styles from './Login.module.css';
 
-const formInitialState = {
-   email: '',
-   password: '',
-};
-
 const Login = () => {
-   const [formValues, setFormValues] = useState(formInitialState);
-
-   const changeHandler = (e) => {
-      const value = e.target.value;
-
-      setFormValues((state) => ({
-         ...state,
-         [e.target.name]: value,
-      }));
-   };
-
-   const submitHandler = (e) => {
-      e.preventDefault();
-      console.log(formValues);
-      resetFormHandler();
-   };
-   const resetFormHandler = () => {
-      setFormValues(formInitialState);
-   };
+   const { formValues, onChangeHandler, onSubmit } = useForm({
+      email: '',
+      password: '',
+   }, (formData) => {
+      console.log(formData);
+   });
    return (
       <>
          <div className={styles['header']}>
@@ -33,7 +15,7 @@ const Login = () => {
          </div>
          <section className={styles['login-page']} id="loginPage">
             <form
-               onSubmit={submitHandler}
+               onSubmit={onSubmit}
                className={styles['login-form']}
                id="loginForm"
                method="POST"
@@ -44,7 +26,7 @@ const Login = () => {
                   id="email"
                   name="email"
                   value={formValues.email}
-                  onChange={changeHandler}
+                  onChange={onChangeHandler}
                   placeholder="Email"
                />
 
@@ -54,7 +36,7 @@ const Login = () => {
                   id="password"
                   name="password"
                   value={formValues.password}
-                  onChange={changeHandler}
+                  onChange={onChangeHandler}
                   placeholder="Password"
                />
 

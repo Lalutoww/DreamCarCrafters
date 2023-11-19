@@ -8,6 +8,8 @@ const formInitialState = {
    model: '',
    year: '',
    color: '',
+   engine: '',
+   horsepower: '',
    price: '',
    description: '',
    imageUrl: '',
@@ -91,6 +93,25 @@ const SellCar = () => {
                   placeholder="Silver"
                />
 
+               <label htmlFor="engine">Engine:</label>
+               <input
+                  type="text"
+                  id="engine"
+                  name="engine"
+                  value={formValues.engine}
+                  onChange={changeHandler}
+                  placeholder="2.0 HDI"
+               />
+
+               <label htmlFor="horsepower">Engine:</label>
+               <input
+                  type="text"
+                  id="horsepower"
+                  name="horsepower"
+                  value={formValues.horsepower}
+                  onChange={changeHandler}
+                  placeholder="110"
+               />
                <label htmlFor="imageUrl">Image URL:</label>
                <input
                   type="text"
