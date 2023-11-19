@@ -1,39 +1,24 @@
-import { useState, useEffect } from 'react';
+import { useForm } from '../../../hooks/useForm.js';
 import styles from './Register.module.css';
 
-const formInitialState = {
-   username: '',
-   password: '',
-   rePassword: '',
-};
 
 const Register = () => {
-   const [formValues, setFormValues] = useState(formInitialState);
-
-   const changeHandler = (e) => {
-      const value = e.target.value;
-      setFormValues((state) => ({
-         ...state,
-         [e.target.name]: value,
-      }));
-   };
-
-   const submitHandler = (e) => {
-      e.preventDefault();
-      console.log(formValues);
-      resetFormHandler();
-   };
-
-   const resetFormHandler = () => {
-      setFormValues(formInitialState);
-   };
+   const {formValues, onChangeHandler, onSubmit} = useForm({
+      username: '',
+      password: '',
+      rePassword: '',
+   }, (formData)=>{
+      console.log(formData);
+   })
 
    return (
       <>
-      <div className={styles['header']}><h1>Register</h1></div>
+         <div className={styles['header']}>
+            <h1>Register</h1>
+         </div>
          <section className={styles['register-page']} id="registerPage">
             <form
-               onSubmit={submitHandler}
+               onSubmit={onSubmit}
                className={styles['register-form']}
                id="registerForm"
                action="#"
@@ -48,7 +33,7 @@ const Register = () => {
                   id="username"
                   name="username"
                   value={formValues.username}
-                  onChange={changeHandler}
+                  onChange={onChangeHandler}
                   placeholder="Enter your Username"
                />
 
@@ -58,7 +43,7 @@ const Register = () => {
                   id="password"
                   name="password"
                   value={formValues.password}
-                  onChange={changeHandler}
+                  onChange={onChangeHandler}
                   placeholder="Password"
                />
 
@@ -68,7 +53,7 @@ const Register = () => {
                   id="rePassword"
                   name="rePassword"
                   value={formValues.rePassword}
-                  onChange={changeHandler}
+                  onChange={onChangeHandler}
                   placeholder="Repeat Password"
                />
 
