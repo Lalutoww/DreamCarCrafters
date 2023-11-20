@@ -1,55 +1,36 @@
 import styles from './SellCar.module.css';
-import { useState } from 'react';
+import { useForm } from '../../../../hooks/useForm.js';
 import { useNavigate } from 'react-router-dom';
 import * as carService from '../../../../services/carService.js';
 
-const formInitialState = {
-   manufacturer: '',
-   model: '',
-   year: '',
-   color: '',
-   engine: '',
-   horsepower: '',
-   price: '',
-   description: '',
-   imageUrl: '',
-};
-
 const SellCar = () => {
    const navigate = useNavigate();
-   const [formValues, setFormValues] = useState(formInitialState);
-
-   const changeHandler = (e) => {
-      const value = e.target.value;
-
-      setFormValues((state) => ({
-         ...state,
-         [e.target.name]: value,
-      }));
-   };
-
-   const submitHandler = async (e) => {
-      e.preventDefault();
-
-      const carData = formValues;
-
-      try {
-         await carService.create(carData);
-         navigate('/cars/browse');
-      } catch (err) {
-         console.log(err);
+   const { formValues, onChangeHandler, onSubmit } = useForm(
+      {
+         manufacturer: '',
+         model: '',
+         year: '',
+         color: '',
+         engine: '',
+         horsepower: '',
+         price: '',
+         description: '',
+         imageUrl: '',
+      },
+      async (formData) => {
+         try {
+            await carService.create(formData);
+            navigate('/cars/browse');
+         } catch (err) {
+            console.log(err);
+         }
       }
-
-      resetFormHandler();
-   };
-   const resetFormHandler = () => {
-      setFormValues(formInitialState);
-   };
+   );
    return (
       <>
          <section className={styles['create-page']} id="createPage">
             <form
-               onSubmit={submitHandler}
+               onSubmit={onSubmit}
                className={styles['create-form']}
                id="createForm"
             >
@@ -59,7 +40,7 @@ const SellCar = () => {
                   id="manufacturer"
                   name="manufacturer"
                   value={formValues.manufacturer}
-                  onChange={changeHandler}
+                  onChange={onChangeHandler}
                   placeholder="Peugeot"
                />
 
@@ -69,7 +50,7 @@ const SellCar = () => {
                   id="model"
                   name="model"
                   value={formValues.type}
-                  onChange={changeHandler}
+                  onChange={onChangeHandler}
                   placeholder="406"
                />
 
@@ -79,7 +60,7 @@ const SellCar = () => {
                   id="year"
                   name="year"
                   value={formValues.year}
-                  onChange={changeHandler}
+                  onChange={onChangeHandler}
                   placeholder="2001"
                />
 
@@ -89,7 +70,7 @@ const SellCar = () => {
                   id="color"
                   name="color"
                   value={formValues.color}
-                  onChange={changeHandler}
+                  onChange={onChangeHandler}
                   placeholder="Silver"
                />
 
@@ -99,17 +80,17 @@ const SellCar = () => {
                   id="engine"
                   name="engine"
                   value={formValues.engine}
-                  onChange={changeHandler}
+                  onChange={onChangeHandler}
                   placeholder="2.0 HDI"
                />
 
-               <label htmlFor="horsepower">Engine:</label>
+               <label htmlFor="horsepower">Horsepower:</label>
                <input
                   type="text"
                   id="horsepower"
                   name="horsepower"
                   value={formValues.horsepower}
-                  onChange={changeHandler}
+                  onChange={onChangeHandler}
                   placeholder="110"
                />
                <label htmlFor="imageUrl">Image URL:</label>
@@ -118,7 +99,7 @@ const SellCar = () => {
                   id="imageUrl"
                   name="imageUrl"
                   value={formValues.imageUrl}
-                  onChange={changeHandler}
+                  onChange={onChangeHandler}
                   placeholder="Image Url..."
                />
 
@@ -128,8 +109,8 @@ const SellCar = () => {
                   id="price"
                   name="price"
                   value={formValues.price}
-                  onChange={changeHandler}
-                  placeholder="1,200"
+                  onChange={onChangeHandler}
+                  placeholder="1200"
                />
 
                <label htmlFor="description">Description:</label>
@@ -138,7 +119,7 @@ const SellCar = () => {
                   id="description"
                   name="description"
                   value={formValues.description}
-                  onChange={changeHandler}
+                  onChange={onChangeHandler}
                   placeholder="Description..."
                />
 
