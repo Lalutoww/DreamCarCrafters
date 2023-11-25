@@ -1,13 +1,21 @@
 import { useForm } from '../../../hooks/useForm.js';
 import styles from './Login.module.css';
 
+const LoginFormKeys = {
+   Email: 'email',
+   Password: 'password',
+};
+
 const Login = () => {
-   const { formValues, onChangeHandler, onSubmit } = useForm({
-      email: '',
-      password: '',
-   }, (formData) => {
-      console.log(formData);
-   });
+   const { formValues, onChangeHandler, onSubmit } = useForm(
+      (formData) => {
+         console.log(formData);
+      },
+      {
+         [LoginFormKeys.Email]: '',
+         [LoginFormKeys.Password]: '',
+      }
+   );
    return (
       <>
          <div className={styles['header']}>
@@ -24,8 +32,8 @@ const Login = () => {
                <input
                   type="text"
                   id="email"
-                  name="email"
-                  value={formValues.email}
+                  name={LoginFormKeys.Email}
+                  value={formValues[LoginFormKeys.Email]}
                   onChange={onChangeHandler}
                   placeholder="Email"
                />
@@ -34,8 +42,8 @@ const Login = () => {
                <input
                   type="password"
                   id="password"
-                  name="password"
-                  value={formValues.password}
+                  name={LoginFormKeys.Password}
+                  value={formValues[LoginFormKeys.Password]}
                   onChange={onChangeHandler}
                   placeholder="Password"
                />
