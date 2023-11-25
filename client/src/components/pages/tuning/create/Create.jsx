@@ -1,15 +1,25 @@
 import { useForm } from '../../../../hooks/useForm.js';
 import styles from './Create.module.css';
 
+const PartFormKeys = {
+   Name: 'name',
+   Manufacturer: 'manufacturer',
+   Description: 'description',
+   ImageUrl: 'imageUrl',
+};
+
 const Create = () => {
-   const { formValues, onChangeHandler, onSubmit } = useForm({
-      name: '',
-      manufacturer: '',
-      description: '',
-      imageUrl: '',
-   }, (formData)=>{
-      console.log(formData)
-   });
+   const { formValues, onChangeHandler, onSubmit } = useForm(
+      (formData) => {
+         console.log(formData);
+      },
+      {
+         [PartFormKeys.Name]: '',
+         [PartFormKeys.Manufacturer]: '',
+         [PartFormKeys.Description]: '',
+         [PartFormKeys.ImageUrl]: '',
+      }
+   );
    return (
       <>
          <div className={styles['header']}>
@@ -21,8 +31,8 @@ const Create = () => {
                <input
                   type="text"
                   id="name"
-                  name="name"
-                  value={formValues.name}
+                  name={PartFormKeys.Name}
+                  value={formValues[PartFormKeys.Name]}
                   onChange={onChangeHandler}
                   placeholder="DRIVEGUARD PLUS"
                />
@@ -30,8 +40,8 @@ const Create = () => {
                <input
                   type="text"
                   id="manufacturer"
-                  name="manufacturer"
-                  value={formValues.manufacturer}
+                  name={PartFormKeys.Manufacturer}
+                  value={formValues[PartFormKeys.Manufacturer]}
                   onChange={onChangeHandler}
                   placeholder="Bridgestone"
                />
@@ -39,8 +49,8 @@ const Create = () => {
                <input
                   type="text"
                   id="description"
-                  name="description"
-                  value={formValues.description}
+                  name={PartFormKeys.Description}
+                  value={formValues[PartFormKeys.Description]}
                   onChange={onChangeHandler}
                   placeholder="Touring tire comfort meets all-season confidence in the DriveGuard Plus."
                ></input>
@@ -48,8 +58,8 @@ const Create = () => {
                <input
                   type="text"
                   id="imageUrl"
-                  name="imageUrl"
-                  value={formValues.imageUrl}
+                  name={PartFormKeys.ImageUrl}
+                  value={formValues[PartFormKeys.ImageUrl]}
                   onChange={onChangeHandler}
                />
                <input type="submit" />
