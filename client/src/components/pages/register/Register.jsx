@@ -1,15 +1,25 @@
 import { useForm } from '../../../hooks/useForm.js';
 import styles from './Register.module.css';
 
+const RegisterFormKeys = {
+   Email: 'email',
+   Username: 'username',
+   Password: 'password',
+   RePassword: 'rePassword',
+};
 
 const Register = () => {
-   const {formValues, onChangeHandler, onSubmit} = useForm({
-      username: '',
-      password: '',
-      rePassword: '',
-   }, (formData)=>{
-      console.log(formData);
-   })
+   const { formValues, onChangeHandler, onSubmit } = useForm(
+      (formData) => {
+         console.log(formData);
+      },
+      {
+         [RegisterFormKeys.Email]: '',
+         [RegisterFormKeys.Username]: '',
+         [RegisterFormKeys.Password]: '',
+         [RegisterFormKeys.RePassword]: '',
+      }
+   );
 
    return (
       <>
@@ -25,24 +35,31 @@ const Register = () => {
                method=""
             >
                <label htmlFor="email">Email:</label>
-               <input type="text" id="email" name="" placeholder="Email" />
+               <input
+                  type="text"
+                  id="email"
+                  name={RegisterFormKeys.Email}
+                  value={formValues[RegisterFormKeys.Email]}
+                  onChange={onChangeHandler}
+                  placeholder="Email"
+               />
 
                <label htmlFor="username">Username:</label>
                <input
                   type="text"
                   id="username"
-                  name="username"
-                  value={formValues.username}
+                  name={RegisterFormKeys.Username}
+                  value={formValues[RegisterFormKeys.Username]}
                   onChange={onChangeHandler}
-                  placeholder="Enter your Username"
+                  placeholder="Username"
                />
 
                <label htmlFor="password">Password:</label>
                <input
                   type="password"
                   id="password"
-                  name="password"
-                  value={formValues.password}
+                  name={RegisterFormKeys.Password}
+                  value={formValues[RegisterFormKeys.Password]}
                   onChange={onChangeHandler}
                   placeholder="Password"
                />
@@ -51,8 +68,8 @@ const Register = () => {
                <input
                   type="password"
                   id="rePassword"
-                  name="rePassword"
-                  value={formValues.rePassword}
+                  name={RegisterFormKeys.RePassword}
+                  value={formValues[RegisterFormKeys.RePassword]}
                   onChange={onChangeHandler}
                   placeholder="Repeat Password"
                />
