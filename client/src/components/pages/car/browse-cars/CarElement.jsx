@@ -1,10 +1,12 @@
+import styles from './BrowseCars.module.css';
+
 import { Link } from 'react-router-dom';
 import separateNumbers from '../../../../utils/separateNumbers.js'
 
-const CarElement = ({ manufacturer, model, price, styles, imageUrl, id }) => {
+const CarElement = ({ manufacturer, model, price, imageUrl, _id }) => {
    return (
       <Link
-         to={`/cars/details/${id}`}
+         to={`/cars/details/${_id}`}
          className={styles['added-cars-in-market']}
       >
          <img src={imageUrl} className={styles['picture-added-cars']} />

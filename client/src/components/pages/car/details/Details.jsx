@@ -1,7 +1,20 @@
 import styles from './Details.module.css';
-import { Link } from 'react-router-dom';
+import { useState, useEffect, useContext } from 'react';
+
+import { Link, useParams } from 'react-router-dom';
+
+import * as carService from '../../../../services/carService.js';
+import AuthContext from '../../../../contexts/authContext.jsx';
 
 const Details = () => {
+   const { userId } = useContext(AuthContext);
+   const [car, setCar] = useState({});
+   const { carId } = useParams();
+
+   useEffect(() => {
+      carService.getOne(carId).then(setCar);
+   }, [carId]);
+
    return (
       <>
          <div className={styles['header']}>
@@ -10,41 +23,26 @@ const Details = () => {
          <section className={styles['details-page']} id="detailsPage">
             <div className={styles['details-info']} id="detailsInfo">
                <div className={styles['info']}>
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Peugeot_406_2003.jpg/1200px-Peugeot_406_2003.jpg" />
+                  <img src={car.imageUrl} />
                </div>
 
                <div className={styles['info']}>
-                  <h3>Manufacturer: Peugeot</h3>
-                  <h3>Model: 406</h3>
-                  <h3>Year of Production: 2001</h3>
-                  <h3>
-                     Description: The Peugeot 406 is a stylish and versatile
-                     midsize car that combines elegance with performance. Known
-                     for its sleek design and comfortable interior, the 406
-                     offers a smooth driving experience with responsive
-                     handling. With a range of engine options and advanced
-                     features, this Peugeot model strikes a balance between
-                     practicality and sophistication, making it a popular choice
-                     for those seeking a well-rounded and enjoyable driving
-                     experience.
-                  </h3>
-                  <h2>Price: $153</h2>
+                  <h3>Manufacturer: {car.manufacturer}</h3>
+                  <h3>Model: {car.model}</h3>
+                  <h3>Year of Production: {car.year}</h3>
+                  <h3>Description: {car.description}</h3>
+                  <h2>Price: ${car.price}</h2>
                </div>
 
-               {/* <!--If there is user logged in--> */}
                <div className={styles['buttons']}>
-                  {/* <!--If user is not owner of the toy post--> */}
-                  <Link to="#" className={styles['like-btn']}>
-                     Like
-                  </Link>
+                  {userId !== car._ownerId && <Link to="#">Buy</Link>}
 
-                  {/* <!--If user is owner--> */}
-                  <Link to="#" className={styles['edit-btn']}>
-                     Edit
-                  </Link>
-                  <Link to="#" className={styles['delete-btn']}>
-                     Delete
-                  </Link>
+                  {userId === car._ownerId && (
+                     <>
+                        <Link to="#">Edit</Link>
+                        <Link to="#">Delete</Link>
+                     </>
+                  )}
                </div>
             </div>
          </section>

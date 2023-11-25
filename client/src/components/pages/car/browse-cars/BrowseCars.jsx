@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
 import styles from './BrowseCars.module.css';
+
+import { useEffect, useState } from 'react';
 import * as carService from '../../../../services/carService.js';
 import CarElement from './CarElement.jsx';
 
@@ -37,12 +38,7 @@ const BrowseCars = () => {
                {allCars.map((car) => (
                   <CarElement
                      key={car._id}
-                     id={car._id}
-                     manufacturer={car.manufacturer}
-                     model={car.model}
-                     price={car.price}
-                     styles={styles}
-                     imageUrl={car.imageUrl}
+                     {...car}
                   />
                ))}
             </div>

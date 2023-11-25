@@ -4,7 +4,7 @@ const Path = {
    CreateParts: '/parts/create',
    Login: '/login',
    Register: '/register',
-   Details: '/cars/details/:id',
+   Details: '/cars/details/:carId',
    SellCar: '/cars/sell',
    MyGarage: '/cars/garage',
    Logout: '/logout',
