@@ -9,27 +9,45 @@ AuthContext.displayName = 'AuthContext';
 
 export const AuthProvider = ({ children }) => {
    const navigate = useNavigate();
-   const [auth, setAuth] = useState({});
+   const [auth, setAuth] = useState(() => {
+      localStorage.removeItem('accessToken');
 
-   const loginSubmitHandler = (values) => {
-      const result = authService.login(values.email, values.password);
+      return {};
+   });
+
+   const loginSubmitHandler = async (values) => {
+      const result = await authService.login(values.email, values.password);
+      console.log(result);
 
       setAuth(result);
+      localStorage.setItem('accessToken', result.accessToken);
 
       navigate(Path.Home);
    };
 
    const registerSubmitHandler = async (values) => {
-      const result = await authService.register(values.email, values.username, values.password);
+      const result = await authService.register(
+         values.email,
+         values.username,
+         values.password
+      );
 
       setAuth(result);
+      localStorage.setItem('accessToken', result.accessToken);
 
       navigate(Path.Home);
+   };
+
+   const logoutHandler = () => {
+      setAuth({});
+
+      localStorage.removeItem('accessToken');
    };
 
    const contextValues = {
       loginSubmitHandler,
       registerSubmitHandler,
+      logoutHandler,
       username: auth.username || auth.email,
       email: auth.email,
       isAuthenticated: !!auth.accessToken,
