@@ -19,8 +19,20 @@ export const AuthProvider = ({ children }) => {
       navigate(Path.Home);
    };
 
+   const registerSubmitHandler = async (values) => {
+      const result = await authService.register(values.email, values.username, values.password);
+
+      setAuth(result);
+
+      navigate(Path.Home);
+   };
+
    const contextValues = {
       loginSubmitHandler,
+      registerSubmitHandler,
+      username: auth.username || auth.email,
+      email: auth.email,
+      isAuthenticated: !!auth.accessToken,
    };
 
    return (

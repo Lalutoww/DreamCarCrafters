@@ -7,3 +7,13 @@ export const login = async (email, password) => {
 
    return result;
 };
+
+export const register = async (email, username, password) => {
+   const result = await request.post(`${baseUrl}/register`, {
+      email,
+      username,
+      password,
+   });
+
+   return result;
+};

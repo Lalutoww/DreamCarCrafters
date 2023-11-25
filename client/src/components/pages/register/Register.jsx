@@ -1,5 +1,9 @@
-import { useForm } from '../../../hooks/useForm.js';
 import styles from './Register.module.css';
+
+import { useContext } from 'react';
+import { useForm } from '../../../hooks/useForm.js';
+
+import AuthContext from '../../../contexts/authContext.jsx';
 
 const RegisterFormKeys = {
    Email: 'email',
@@ -9,10 +13,9 @@ const RegisterFormKeys = {
 };
 
 const Register = () => {
+   const { registerSubmitHandler } = useContext(AuthContext);
    const { formValues, onChangeHandler, onSubmit } = useForm(
-      (formData) => {
-         console.log(formData);
-      },
+      registerSubmitHandler,
       {
          [RegisterFormKeys.Email]: '',
          [RegisterFormKeys.Username]: '',
