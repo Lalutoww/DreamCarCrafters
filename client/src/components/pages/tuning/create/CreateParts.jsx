@@ -1,5 +1,5 @@
 import { useForm } from '../../../../hooks/useForm.js';
-import styles from './Create.module.css';
+import styles from './CreateParts.module.css';
 
 const PartFormKeys = {
    Name: 'name',
@@ -8,7 +8,7 @@ const PartFormKeys = {
    ImageUrl: 'imageUrl',
 };
 
-const Create = () => {
+const CreateParts = () => {
    const { formValues, onChangeHandler, onSubmit } = useForm(
       (formData) => {
          console.log(formData);
@@ -69,4 +69,4 @@ const Create = () => {
    );
 };
 
-export default Create;
+export default CreateParts;
