@@ -1,4 +1,5 @@
-import { createContext, useState } from 'react';
+import { createContext } from 'react';
+import usePersistedState from '../hooks/usePersistedState.js';
 import * as authService from '../services/authService.js';
 import { useNavigate } from 'react-router-dom';
 
@@ -9,7 +10,7 @@ AuthContext.displayName = 'AuthContext';
 
 export const AuthProvider = ({ children }) => {
    const navigate = useNavigate();
-   const [auth, setAuth] = useState(() => {
+   const [auth, setAuth] = usePersistedState('auth', () => {
       localStorage.removeItem('accessToken');
 
       return {};
