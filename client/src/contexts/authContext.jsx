@@ -17,7 +17,6 @@ export const AuthProvider = ({ children }) => {
 
    const loginSubmitHandler = async (values) => {
       const result = await authService.login(values.email, values.password);
-      console.log(result);
 
       setAuth(result);
       localStorage.setItem('accessToken', result.accessToken);
@@ -50,6 +49,7 @@ export const AuthProvider = ({ children }) => {
       logoutHandler,
       username: auth.username || auth.email,
       email: auth.email,
+      userId: auth._id,
       isAuthenticated: !!auth.accessToken,
    };
 
