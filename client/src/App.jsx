@@ -1,5 +1,7 @@
-import './App.css';
 import { Routes, Route } from 'react-router-dom';
+
+import { AuthProvider } from './contexts/authContext.jsx';
+
 import Footer from './components/footer/Footer.jsx';
 import Header from './components/header/Header.jsx';
 import BrowseCars from './components/pages/car/browse-cars/BrowseCars.jsx';
@@ -14,18 +16,20 @@ import Details from './components/pages/car/details/Details.jsx';
 function App() {
    return (
       <>
-         <Header />
-         <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/cars/browse" element={<BrowseCars />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/parts/create" element={<Create />} />
-            <Route path="/cars/garage" element={<MyGarage />} />
-            <Route path="/cars/sell" element={<SellCar />} />
-            <Route path="/cars/details/:id" element={<Details /> } />
-         </Routes>
-         <Footer />
+         <AuthProvider>
+            <Header />
+            <Routes>
+               <Route path="/" element={<Home />} />
+               <Route path="/cars/browse" element={<BrowseCars />} />
+               <Route path="/register" element={<Register />} />
+               <Route path="/login" element={<Login />} />
+               <Route path="/parts/create" element={<Create />} />
+               <Route path="/cars/garage" element={<MyGarage />} />
+               <Route path="/cars/sell" element={<SellCar />} />
+               <Route path="/cars/details/:id" element={<Details />} />
+            </Routes>
+            <Footer />
+         </AuthProvider>
       </>
    );
 }

@@ -1,5 +1,8 @@
-import { useForm } from '../../../hooks/useForm.js';
 import styles from './Login.module.css';
+
+import { useForm } from '../../../hooks/useForm.js';
+import AuthContext from '../../../contexts/authContext.jsx';
+import { useContext } from 'react';
 
 const LoginFormKeys = {
    Email: 'email',
@@ -7,10 +10,9 @@ const LoginFormKeys = {
 };
 
 const Login = () => {
+   const { loginSubmitHandler } = useContext(AuthContext);
    const { formValues, onChangeHandler, onSubmit } = useForm(
-      (formData) => {
-         console.log(formData);
-      },
+      loginSubmitHandler,
       {
          [LoginFormKeys.Email]: '',
          [LoginFormKeys.Password]: '',
