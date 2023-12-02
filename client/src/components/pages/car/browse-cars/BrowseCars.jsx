@@ -23,7 +23,6 @@ const BrowseCars = () => {
       }
    }, [allCars]);
    if (showNoCars) {
-      throw new Error('NOOO!')
       return (
          <div className={styles['no-cars']}>There are no cars for sale!</div>
       );
