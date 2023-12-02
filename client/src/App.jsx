@@ -14,25 +14,28 @@ import MyGarage from './components/pages/car/my-garage/MyGarage.jsx';
 import SellCar from './components/pages/Car/sell-car/SellCar.jsx';
 import Details from './components/pages/car/details/Details.jsx';
 import Logout from './components/logout/Logout.jsx';
+import ErrorBoundary from './components/errorBoundary/ErrorBoundary.jsx';
 
 function App() {
    return (
       <>
-         <AuthProvider>
-            <Header />
-            <Routes>
-               <Route path={Path.Home} element={<Home />} />
-               <Route path={Path.BrowseCars} element={<BrowseCars />} />
-               <Route path={Path.Register} element={<Register />} />
-               <Route path={Path.Login} element={<Login />} />
-               <Route path={Path.CreateParts} element={<CreateParts />} />
-               <Route path={Path.MyGarage} element={<MyGarage />} />
-               <Route path={Path.SellCar} element={<SellCar />} />
-               <Route path={Path.Details} element={<Details />} />
-               <Route path={Path.Logout} element={<Logout />} />
-            </Routes>
-            <Footer />
-         </AuthProvider>
+         <ErrorBoundary>
+            <AuthProvider>
+               <Header />
+               <Routes>
+                  <Route path={Path.Home} element={<Home />} />
+                  <Route path={Path.BrowseCars} element={<BrowseCars />} />
+                  <Route path={Path.Register} element={<Register />} />
+                  <Route path={Path.Login} element={<Login />} />
+                  <Route path={Path.CreateParts} element={<CreateParts />} />
+                  <Route path={Path.MyGarage} element={<MyGarage />} />
+                  <Route path={Path.SellCar} element={<SellCar />} />
+                  <Route path={Path.Details} element={<Details />} />
+                  <Route path={Path.Logout} element={<Logout />} />
+               </Routes>
+               <Footer />
+            </AuthProvider>
+         </ErrorBoundary>
       </>
    );
 }

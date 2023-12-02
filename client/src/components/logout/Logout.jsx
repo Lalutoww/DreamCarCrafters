@@ -10,14 +10,17 @@ export default function Logout() {
    const { logoutHandler } = useContext(AuthContext);
 
    useEffect(() => {
-      const result = async() =>{try {
-        await authService.logout();
-        logoutHandler();
-        navigate(Path.Home);
-     } catch (e) {
-        navigate(Path.Home);
-     }}
-     result();
+      const result = async () => {
+         try {
+            await authService.logout();
+            logoutHandler();
+            navigate(Path.Home);
+         } catch (e) {
+            logoutHandler();
+            navigate(Path.Home);
+         }
+      };
+      result();
    }, []);
 
    return null;
