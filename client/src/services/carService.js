@@ -26,3 +26,9 @@ export const remove = async (carId) => {
 
    return result;
 };
+
+export const edit = async (carId, carData) => {
+   const result = await request.put(`${baseUrl}/${carId}`, carData);
+
+   return result;
+};

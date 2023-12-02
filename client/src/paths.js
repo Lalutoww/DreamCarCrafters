@@ -9,6 +9,7 @@ const Path = {
    MyGarage: '/cars/garage',
    Logout: '/logout',
    CarDelete: '/cars/delete/:carId',
+   CarEdit: '/cars/edit/:carId',
 };
 
 export default Path;

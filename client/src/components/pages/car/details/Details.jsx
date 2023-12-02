@@ -5,6 +5,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 
 import * as carService from '../../../../services/carService.js';
 import AuthContext from '../../../../contexts/authContext.jsx';
+import separateNumbers from '../../../../utils/separateNumbers.js';
 
 const Details = () => {
    const navigate = useNavigate();
@@ -44,7 +45,7 @@ const Details = () => {
                   <h3>Model: {car.model}</h3>
                   <h3>Year of Production: {car.year}</h3>
                   <h3>Description: {car.description}</h3>
-                  <h2>Price: ${car.price}</h2>
+                  <h2>Price: ${separateNumbers(car.price)}</h2>
                </div>
 
                <div className={styles['buttons']}>
@@ -52,8 +53,8 @@ const Details = () => {
 
                   {userId === car._ownerId && (
                      <>
-                        <button>Edit</button>
-                        <button onClick={deleteButtonClickHandler}>Delete</button>
+                        <Link to={`/cars/edit/${carId}`} className={styles['button']}>Edit</Link>
+                        <button className={styles['button']} onClick={deleteButtonClickHandler}>Delete</button>
                      </>
                   )}
                </div>

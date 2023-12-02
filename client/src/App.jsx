@@ -14,6 +14,7 @@ import MyGarage from './components/pages/car/my-garage/MyGarage.jsx';
 import SellCar from './components/pages/Car/sell-car/SellCar.jsx';
 import Details from './components/pages/car/details/Details.jsx';
 import Logout from './components/logout/Logout.jsx';
+import CarEdit from './components/pages/car/car-edit/CarEdit.jsx'
 import ErrorBoundary from './components/errorBoundary/ErrorBoundary.jsx';
 import AuthGuard from './components/guards/AuthGuard.jsx';
 import GuestGuard from './components/guards/GuestGuard.jsx';
@@ -36,6 +37,7 @@ function App() {
                      <Route path={Path.MyGarage} element={<MyGarage />} />
                      <Route path={Path.SellCar} element={<SellCar />} />
                      <Route path={Path.Details} element={<Details />} />
+                     <Route path={Path.CarEdit} element={<CarEdit />} />
                      <Route path={Path.Logout} element={<Logout />} />
                   </Route>
                </Routes>
