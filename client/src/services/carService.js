@@ -20,3 +20,9 @@ export const create = async (carData) => {
 
    return result;
 };
+
+export const remove = async (carId) => {
+   const result = await request.remove(`${baseUrl}/${carId}`);
+
+   return result;
+};

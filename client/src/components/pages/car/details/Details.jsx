@@ -1,12 +1,13 @@
 import styles from './Details.module.css';
 import { useState, useEffect, useContext } from 'react';
 
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 import * as carService from '../../../../services/carService.js';
 import AuthContext from '../../../../contexts/authContext.jsx';
 
 const Details = () => {
+   const navigate = useNavigate();
    const { userId } = useContext(AuthContext);
    const [car, setCar] = useState({});
    const { carId } = useParams();
@@ -14,6 +15,18 @@ const Details = () => {
    useEffect(() => {
       carService.getOne(carId).then(setCar);
    }, [carId]);
+
+   const deleteButtonClickHandler = async () => {
+      const hasConfirmed = confirm(
+         `Are you sure you want to delete ${car.manufacturer} ${car.model}`
+      );
+
+      if (hasConfirmed) {
+         await carService.remove(carId);
+
+         navigate('/cars/browse');
+      }
+   };
 
    return (
       <>
@@ -35,12 +48,12 @@ const Details = () => {
                </div>
 
                <div className={styles['buttons']}>
-                  {userId !== car._ownerId && <Link to="#">Buy</Link>}
+                  {userId !== car._ownerId && <button>Buy</button>}
 
                   {userId === car._ownerId && (
                      <>
-                        <Link to="#">Edit</Link>
-                        <Link to="#">Delete</Link>
+                        <button>Edit</button>
+                        <button onClick={deleteButtonClickHandler}>Delete</button>
                      </>
                   )}
                </div>
