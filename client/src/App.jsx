@@ -15,6 +15,7 @@ import SellCar from './components/pages/Car/sell-car/SellCar.jsx';
 import Details from './components/pages/car/details/Details.jsx';
 import Logout from './components/logout/Logout.jsx';
 import ErrorBoundary from './components/errorBoundary/ErrorBoundary.jsx';
+import AuthGuard from './components/guards/AuthGuard';
 
 function App() {
    return (
@@ -27,11 +28,13 @@ function App() {
                   <Route path={Path.BrowseCars} element={<BrowseCars />} />
                   <Route path={Path.Register} element={<Register />} />
                   <Route path={Path.Login} element={<Login />} />
-                  <Route path={Path.CreateParts} element={<CreateParts />} />
-                  <Route path={Path.MyGarage} element={<MyGarage />} />
-                  <Route path={Path.SellCar} element={<SellCar />} />
-                  <Route path={Path.Details} element={<Details />} />
-                  <Route path={Path.Logout} element={<Logout />} />
+                  <Route element={<AuthGuard />}>
+                     <Route path={Path.CreateParts} element={<CreateParts />} />
+                     <Route path={Path.MyGarage} element={<MyGarage />} />
+                     <Route path={Path.SellCar} element={<SellCar />} />
+                     <Route path={Path.Details} element={<Details />} />
+                     <Route path={Path.Logout} element={<Logout />} />
+                  </Route>
                </Routes>
                <Footer />
             </AuthProvider>
