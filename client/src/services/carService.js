@@ -14,6 +14,15 @@ export const getOne = async (carId) => {
    return result;
 };
 
+export const getGarageCars = async(ownerId) => {
+   const query = new URLSearchParams({
+      where: `_ownerId="${ownerId}"`,
+  });
+
+  const result = await request.get(`${baseUrl}?${query}`);
+
+  return result;
+}
 
 export const create = async (carData) => {
    const result = await request.post(baseUrl,carData);
@@ -32,3 +41,4 @@ export const edit = async (carId, carData) => {
 
    return result;
 };
+
