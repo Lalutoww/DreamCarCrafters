@@ -40,6 +40,9 @@ const SellCar = () => {
    );
    return (
       <>
+         <div className={styles['header']}>
+            <h1>Sell Car</h1>
+         </div>
          <section className={styles['create-page']} id="createPage">
             <form
                onSubmit={onSubmit}
