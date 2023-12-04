@@ -22,7 +22,6 @@ const Header = () => {
             {/* User Only: */}
             
             {isAuthenticated && (<><li className='user'><Link to={Path.SellCar} data-hover="Sell Car">Sell Car</Link></li>
-            <li className='user'><Link to={Path.CreateParts} data-hover="Create Parts">Create Parts</Link></li>
 		  <li className='user'><Link to={Path.MyGarage} data-hover="My Garage">My Garage</Link></li>
       <li className='user'><Link to={Path.Logout} data-hover="Logout">Logout</Link></li></>)}
 		</ul>
