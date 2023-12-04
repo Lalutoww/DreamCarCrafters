@@ -53,6 +53,7 @@ const Details = () => {
 
                   {userId === car._ownerId && (
                      <>
+                        <Link to={`/parts/add/${carId}`} className={styles['button']}>Add parts</Link>
                         <Link to={`/cars/edit/${carId}`} className={styles['button']}>Edit</Link>
                         <button className={styles['button']} onClick={deleteButtonClickHandler}>Delete</button>
                      </>

@@ -10,6 +10,7 @@ import Home from './components/pages/home/Home.jsx';
 import Register from './components/pages/register/Register.jsx';
 import Login from './components/pages/login/Login.jsx';
 import CreateParts from './components/pages/tuning/create/CreateParts.jsx';
+import AddParts from './components/pages/tuning/add/AddParts.jsx';
 import MyGarage from './components/pages/car/my-garage/MyGarage.jsx';
 import SellCar from './components/pages/Car/sell-car/SellCar.jsx';
 import Details from './components/pages/car/details/Details.jsx';
@@ -34,6 +35,7 @@ function App() {
                   </Route>
                   <Route element={<AuthGuard />}>
                      <Route path={Path.CreateParts} element={<CreateParts />} />
+                     <Route path={Path.AddParts} element={<AddParts />} />
                      <Route path={Path.MyGarage} element={<MyGarage />} />
                      <Route path={Path.SellCar} element={<SellCar />} />
                      <Route path={Path.Details} element={<Details />} />
