@@ -1,8 +1,7 @@
 const Path = {
    Home: '/',
    BrowseCars: '/cars/browse',
-   CreateParts: '/parts/create',
-   AddParts: '/parts/add',
+   CreateParts: '/parts/create/:carId',
    Login: '/login',
    Register: '/register',
    Details: '/cars/details/:carId',
