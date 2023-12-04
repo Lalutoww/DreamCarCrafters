@@ -1,5 +1,9 @@
-import { useForm } from '../../../../hooks/useForm.js';
 import styles from './CreateParts.module.css';
+
+import { useParams } from 'react-router-dom';
+
+import { useForm } from '../../../hooks/useForm.js';
+import * as partService from '../../../services/partService.js';
 
 const PartFormKeys = {
    Name: 'name',
@@ -9,9 +13,15 @@ const PartFormKeys = {
 };
 
 const CreateParts = () => {
+   const { carId } = useParams();
    const { formValues, onChangeHandler, onSubmit } = useForm(
-      (formData) => {
-         console.log(formData);
+      async (formData) => {
+         try {
+            await partService.create(carId, formData);
+            navigate(`/cars/details/${carId}`);
+         } catch (err) {
+            console.log(err);
+         }
       },
       {
          [PartFormKeys.Name]: '',
