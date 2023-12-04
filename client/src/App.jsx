@@ -1,8 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
-
 import { AuthProvider } from './contexts/authContext.jsx';
 import Path from './paths.js';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './components/footer/Footer.jsx';
 import Header from './components/header/Header.jsx';
 import BrowseCars from './components/pages/car/browse-cars/BrowseCars.jsx';
