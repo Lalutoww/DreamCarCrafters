@@ -10,7 +10,7 @@ const CarElement = ({ manufacturer, model, price, imageUrl, _id }) => {
          className={styles['added-cars-in-market']}
       >
          <img src={imageUrl} className={styles['picture-added-cars']} />
-         <h3>
+         <h3 className={styles['car-name']}>
             {manufacturer} {model}
          </h3>
          <span>Price: ${separateNumbers(price)}</span>

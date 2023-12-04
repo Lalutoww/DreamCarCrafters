@@ -1,4 +1,5 @@
 import styles from './Details.module.css';
+
 import { useState, useEffect, useContext } from 'react';
 
 import { Link, useNavigate, useParams } from 'react-router-dom';
@@ -6,6 +7,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import * as carService from '../../../../services/carService.js';
 import AuthContext from '../../../../contexts/authContext.jsx';
 import separateNumbers from '../../../../utils/separateNumbers.js';
+import PartItem from './partItem.jsx';
 
 const Details = () => {
    const navigate = useNavigate();
@@ -31,7 +33,7 @@ const Details = () => {
 
    return (
       <>
-         <div className={styles['header']}>
+         <div className='header'>
             <h1>Details Page</h1>
          </div>
          <section className={styles['details-page']} id="detailsPage">
@@ -74,6 +76,7 @@ const Details = () => {
                      </>
                   )}
                </div>
+               <PartItem />
             </div>
          </section>
       </>

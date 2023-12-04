@@ -1,65 +1,10 @@
 @import url('https://fonts.google.com/specimen/Roboto+Condensed');
 
-a {
-   text-decoration: none;
-   color: white;
-}
 
-input[type='submit']:hover,
-ul > li:hover {
-   cursor: pointer;
-   transform: scale(1.1);
-}
-
-img {
-   width: 35px;
-   height: 35px;
-   margin-top: 25px;
-}
-
-.header {
-   background-color: rgba(0, 0, 0, 0.8);
-   color: #fff;
-}
-
-.header h1 {
-   text-align: center;
-   font-size: 70px;
-   font-weight: 600;
-   color: white;
-   -webkit-text-stroke: 2px black;
-}
-h2 {
-   font-size: 50px;
-   margin: 0;
-}
-
-label {
-   font-size: 25px;
-}
-
-section {
-   text-align: center;
-   margin-top: 5px;
-   position: relative;
-   padding-bottom: 6px;
-}
-
-form {
-   text-align: center;
-}
-
-input {
-   display: block;
-   margin: 10px auto;
-   width: 200px;
-   border: 2px solid lightsteelblue;
-   padding: 5px;
-}
-
-#viewCatalog {
-   margin-bottom: 5%;
-   margin-top: 3%;
+.added-cars {
+   display: flex;
+   justify-content: space-around;
+   flex-wrap: wrap;
 }
 
 .added-cars-in-market {
@@ -75,6 +20,7 @@ input {
    margin-bottom: 20px;
    margin-top: 10px;
    height: 300px;
+   text-decoration: none;
 }
 
 .picture-added-cars {
@@ -87,13 +33,7 @@ input {
    transform: scale(1.1);
 }
 
-.added-cars {
-   display: flex;
-   justify-content: space-around;
-   flex-wrap: wrap;
-}
-
-h3 {
+.car-name {
    font-size: 22px;
    margin-bottom: 0;
 }
@@ -109,4 +49,11 @@ h3 {
    width: 30%;
    font-size: 30px;
    border: 2px solid white;
+}
+
+img {
+   width: 35px;
+   height: 35px;
+   margin-top: 25px;
+   margin-bottom: 10px;
 }

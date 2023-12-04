@@ -32,7 +32,7 @@ const MyGarage = () => {
    }
    return (
       <>
-         <div className={styles['header']}>
+         <div className='header'>
             <h1>My Garage</h1>
          </div>
          <section id="viewCatalog" className={styles['background-img']}>

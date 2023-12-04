@@ -26,7 +26,7 @@ const Register = () => {
 
    return (
       <>
-         <div className={styles['header']}>
+         <div className='header'>
             <h1>Register</h1>
          </div>
          <section className={styles['register-page']} id="registerPage">

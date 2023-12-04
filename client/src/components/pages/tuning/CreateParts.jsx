@@ -32,8 +32,8 @@ const CreateParts = () => {
    );
    return (
       <>
-         <div className={styles['header']}>
-            <h1>Create Parts</h1>
+         <div className='header'>
+            <h1>Add Part</h1>
          </div>
          <section className={styles['create-page']} id="createPartsPage">
             <form className={styles['create-form']} onSubmit={onSubmit}>

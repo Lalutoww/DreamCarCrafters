@@ -20,7 +20,7 @@ const Login = () => {
    );
    return (
       <>
-         <div className={styles['header']}>
+         <div className='header'>
             <h1>Login</h1>
          </div>
          <section className={styles['login-page']} id="loginPage">

@@ -1,4 +1,4 @@
-import styles from './CarEdit.module.css'
+import styles from './CarEdit.module.css';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import * as carService from '../../../../services/carService.js';
@@ -57,6 +57,9 @@ export default function CarEdit() {
 
    return (
       <>
+         <div className="header">
+            <h1>Edit Car</h1>
+         </div>
          <section className={styles['create-page']} id="createPage">
             <form
                onSubmit={onSubmit}
