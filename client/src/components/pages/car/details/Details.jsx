@@ -5,6 +5,7 @@ import { useState, useEffect, useContext } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 
 import * as carService from '../../../../services/carService.js';
+import * as partService from '../../../../services/partService.js';
 import AuthContext from '../../../../contexts/authContext.jsx';
 import separateNumbers from '../../../../utils/separateNumbers.js';
 import PartItem from './partItem.jsx';
@@ -13,11 +14,20 @@ const Details = () => {
    const navigate = useNavigate();
    const { userId } = useContext(AuthContext);
    const [car, setCar] = useState({});
+   const [parts, setParts] = useState([]);
    const { carId } = useParams();
 
    useEffect(() => {
       carService.getOne(carId).then(setCar);
    }, [carId]);
+
+   useEffect(() => {
+      partService
+         .getAll(carId)
+         .then((result) => setParts(result))
+         .catch((err) => console.log(err));
+   }, []);
+   console.log(...parts)
 
    const deleteButtonClickHandler = async () => {
       const hasConfirmed = confirm(
@@ -76,7 +86,9 @@ const Details = () => {
                      </>
                   )}
                </div>
-               <PartItem />
+               <div>
+               {parts.map((part)=> <PartItem {...part}/>)}
+               </div>
             </div>
          </section>
       </>

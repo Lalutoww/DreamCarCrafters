@@ -1,20 +1,26 @@
 import Button from 'react-bootstrap/Button';
+import styles from './Details.module.css';
 import Card from 'react-bootstrap/Card';
 
-function PartItem() {
+function PartItem({
+   name,
+   manufacturer,
+   description,
+   imageUrl
+}) {
    return (
-      <Card style={{ width: '18rem' }}>
+      <Card className={styles['parts']}>
          <Card.Img
+            className={styles['parts-img']}
             variant="top"
-            src="https://www.otterymotorservices.co.uk/assets/338682/large/71ac86976fed5a93f29be5528f838159_338682_10.jpg"
+            src={imageUrl}
          />
-         <Card.Body>
-            <Card.Title>Card Title</Card.Title>
+         <Card.Body className={styles['parts-body']}>
+            <Card.Title>{name}</Card.Title>
+            <Card.Title>{manufacturer}</Card.Title>
             <Card.Text>
-               Some quick example text to build on the card title and make up
-               the bulk of the card's content.
+               {description}
             </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
          </Card.Body>
       </Card>
    );

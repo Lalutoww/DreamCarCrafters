@@ -1,6 +1,6 @@
 import styles from './CreateParts.module.css';
 
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 import { useForm } from '../../../hooks/useForm.js';
 import * as partService from '../../../services/partService.js';
@@ -14,6 +14,7 @@ const PartFormKeys = {
 
 const CreateParts = () => {
    const { carId } = useParams();
+   const navigate = useNavigate();
    const { formValues, onChangeHandler, onSubmit } = useForm(
       async (formData) => {
          try {
