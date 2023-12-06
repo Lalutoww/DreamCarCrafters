@@ -17,15 +17,17 @@ export const AuthProvider = ({ children }) => {
    });
    const [show, setShow] = useState(false);
    const [error, setError] = useState({});
-   const closeHandler = ()=>{
-      return setShow(false);
-   }
    useEffect(() => {
       const timer = setTimeout(() => {
         setShow(false);
       }, 2000);
       return () => clearTimeout(timer);
     }, [show]);
+
+   const closeHandler = ()=>{
+      return setShow(false);
+   }
+   
    const loginSubmitHandler = async (values) => {
       try{
          const result = await authService.login(values.email, values.password);
