@@ -4,6 +4,10 @@ import { useState, useEffect, useContext } from 'react';
 
 import { Link, useNavigate, useParams } from 'react-router-dom';
 
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
 import * as carService from '../../../../services/carService.js';
 import * as partService from '../../../../services/partService.js';
 import AuthContext from '../../../../contexts/authContext.jsx';
@@ -27,7 +31,6 @@ const Details = () => {
          .then((result) => setParts(result))
          .catch((err) => console.log(err));
    }, []);
-   console.log(...parts)
 
    const deleteButtonClickHandler = async () => {
       const hasConfirmed = confirm(
@@ -43,7 +46,7 @@ const Details = () => {
 
    return (
       <>
-         <div className='header'>
+         <div className="header">
             <h1>Details Page</h1>
          </div>
          <section className={styles['details-page']} id="detailsPage">
@@ -86,9 +89,13 @@ const Details = () => {
                      </>
                   )}
                </div>
-               <div>
-               {parts.map((part)=> <PartItem {...part}/>)}
-               </div>
+               <Container>
+                  <Row lg={3}>
+                        {parts.map((part) => (
+                           <PartItem key={part._id} {...part} />
+                        ))}
+                  </Row>
+               </Container>
             </div>
          </section>
       </>

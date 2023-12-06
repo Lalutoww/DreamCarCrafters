@@ -1,28 +1,18 @@
-import Button from 'react-bootstrap/Button';
-import styles from './Details.module.css';
 import Card from 'react-bootstrap/Card';
+import Col from 'react-bootstrap/Col';
 
-function PartItem({
-   name,
-   manufacturer,
-   description,
-   imageUrl
-}) {
+function PartItem({ name, manufacturer, description, imageUrl }) {
    return (
-      <Card className={styles['parts']}>
-         <Card.Img
-            className={styles['parts-img']}
-            variant="top"
-            src={imageUrl}
-         />
-         <Card.Body className={styles['parts-body']}>
-            <Card.Title>{name}</Card.Title>
-            <Card.Title>{manufacturer}</Card.Title>
-            <Card.Text>
-               {description}
-            </Card.Text>
-         </Card.Body>
-      </Card>
+            <Col className="d-flex">
+               <Card className="bg-dark text-white">
+                  <Card.Img variant="top" src={imageUrl} />
+                  <Card.Body>
+                     <Card.Title>{name}</Card.Title>
+                     <Card.Title>{manufacturer}</Card.Title>
+                     <Card.Text>{description}</Card.Text>
+                  </Card.Body>
+               </Card>
+            </Col>
    );
 }
 
