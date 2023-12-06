@@ -41,4 +41,3 @@ export const edit = async (carId, carData) => {
 
    return result;
 };
-

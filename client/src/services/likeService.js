@@ -1,6 +1,6 @@
 import * as request from '../lib/request';
 
-const baseUrl = 'http://localhost:3030/data/parts';
+const baseUrl = 'http://localhost:3030/data/likes';
 
 export const getAll = async (carId) => {
     const query = new URLSearchParams({
@@ -12,11 +12,11 @@ export const getAll = async (carId) => {
     return result;
 };
 
-export const create = async (carId, partData) => {
-    const newPart = await request.post(baseUrl, {
+export const like = async (carId, userId) => {
+    const newLike = await request.post(baseUrl, {
         carId,
-        ...partData
+        userId
     });
 
-    return newPart;
+    return newLike;
 };

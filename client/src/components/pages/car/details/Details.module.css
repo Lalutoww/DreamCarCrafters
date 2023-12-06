@@ -64,6 +64,23 @@
    margin-bottom: 5%;
    font-size: 20px;
 }
+.likes {
+   color:white;
+   font-weight: 500;
+}
+
+.already-liked{
+   font-style: italic;
+   color: white;
+   font-size: 18px;
+}
+
+.no-tune{
+   margin-top: 5%;
+   font-style: bold;
+   font-weight: 800;
+   color: white;
+}
 
 .button {
    color: black;
