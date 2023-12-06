@@ -5,6 +5,8 @@ import { useForm } from '../../../hooks/useForm.js';
 
 import AuthContext from '../../../contexts/authContext.jsx';
 
+import ErrorAlert from '../../errorAlert/ErrorAlert.jsx';
+
 const RegisterFormKeys = {
    Email: 'email',
    Username: 'username',
@@ -13,7 +15,7 @@ const RegisterFormKeys = {
 };
 
 const Register = () => {
-   const { registerSubmitHandler } = useContext(AuthContext);
+   const { registerSubmitHandler, show, closeHandler } = useContext(AuthContext);
    const { formValues, onChangeHandler, onSubmit } = useForm(
       registerSubmitHandler,
       {
@@ -26,6 +28,7 @@ const Register = () => {
 
    return (
       <>
+      {show && (<ErrorAlert closeHandler={closeHandler}/>)}
          <div className="header">
             <h1>Register</h1>
          </div>

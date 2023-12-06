@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import { createContext, useState, useEffect } from 'react';
 import usePersistedState from '../hooks/usePersistedState.js';
 import * as authService from '../services/authService.js';
 import { useNavigate } from 'react-router-dom';
@@ -15,27 +15,48 @@ export const AuthProvider = ({ children }) => {
 
       return {};
    });
-
+   const [show, setShow] = useState(false);
+   const [error, setError] = useState({});
+   const closeHandler = ()=>{
+      return setShow(false);
+   }
+   useEffect(() => {
+      const timer = setTimeout(() => {
+        setShow(false);
+      }, 2000);
+      return () => clearTimeout(timer);
+    }, [show]);
    const loginSubmitHandler = async (values) => {
-      const result = await authService.login(values.email, values.password);
+      try{
+         const result = await authService.login(values.email, values.password);
 
       setAuth(result);
       localStorage.setItem('accessToken', result.accessToken);
 
       navigate(Path.Home);
+      }catch(error){
+         setShow(true);
+         setError({...error});
+      }
    };
 
    const registerSubmitHandler = async (values) => {
-      const result = await authService.register(
-         values.email,
-         values.username,
-         values.password
-      );
-
-      setAuth(result);
-      localStorage.setItem('accessToken', result.accessToken);
-
-      navigate(Path.Home);
+      try{
+         if(values.password !== values.rePassword) throw {message: `Passwords don't match`}
+         const result = await authService.register(
+            values.email,
+            values.username,
+            values.password
+         );
+   
+         setAuth(result);
+         localStorage.setItem('accessToken', result.accessToken);
+   
+         navigate(Path.Home);  
+      }catch(error){
+         setShow(true);
+         setError({...error});
+      }
    };
 
    const logoutHandler = () => {
@@ -48,6 +69,9 @@ export const AuthProvider = ({ children }) => {
       loginSubmitHandler,
       registerSubmitHandler,
       logoutHandler,
+      closeHandler,
+      show,
+      errorMsg: error.message,
       username: auth.username || auth.email,
       email: auth.email,
       userId: auth._id,

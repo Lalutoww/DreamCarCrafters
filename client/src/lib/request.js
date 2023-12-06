@@ -10,6 +10,7 @@ const buildOptions = (data) => {
 
    const token = localStorage.getItem('accessToken');
 
+
    if (token) {
       options.headers = {
          ...options.headers,
@@ -33,7 +34,7 @@ const request = async (method, url, data) => {
    const result = await response.json();
 
    if (!response.ok) {
-      throw new Error('Array is empty');
+      throw result;
    }
 
    return result;

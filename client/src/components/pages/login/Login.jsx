@@ -2,7 +2,9 @@ import styles from './Login.module.css';
 
 import { useForm } from '../../../hooks/useForm.js';
 import AuthContext from '../../../contexts/authContext.jsx';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
+
+import ErrorAlert from '../../errorAlert/ErrorAlert.jsx'
 
 const LoginFormKeys = {
    Email: 'email',
@@ -10,7 +12,7 @@ const LoginFormKeys = {
 };
 
 const Login = () => {
-   const { loginSubmitHandler } = useContext(AuthContext);
+   const { loginSubmitHandler, show, closeHandler } = useContext(AuthContext);
    const { formValues, onChangeHandler, onSubmit } = useForm(
       loginSubmitHandler,
       {
@@ -20,6 +22,7 @@ const Login = () => {
    );
    return (
       <>
+      {show && (<ErrorAlert closeHandler={closeHandler}/>)}
          <div className='header'>
             <h1>Login</h1>
          </div>
