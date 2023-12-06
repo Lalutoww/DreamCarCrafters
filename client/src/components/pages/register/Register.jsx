@@ -61,6 +61,7 @@ const Register = () => {
                <input
                   type="password"
                   id="password"
+                  autoComplete="off"
                   name={RegisterFormKeys.Password}
                   value={formValues[RegisterFormKeys.Password]}
                   onChange={onChangeHandler}
@@ -71,6 +72,7 @@ const Register = () => {
                <input
                   type="password"
                   id="rePassword"
+                  autoComplete="off"
                   name={RegisterFormKeys.RePassword}
                   value={formValues[RegisterFormKeys.RePassword]}
                   onChange={onChangeHandler}

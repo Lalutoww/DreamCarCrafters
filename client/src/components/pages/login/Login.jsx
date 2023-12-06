@@ -44,6 +44,7 @@ const Login = () => {
                <input
                   type="password"
                   id="password"
+                  autoComplete="off"
                   name={LoginFormKeys.Password}
                   value={formValues[LoginFormKeys.Password]}
                   onChange={onChangeHandler}
