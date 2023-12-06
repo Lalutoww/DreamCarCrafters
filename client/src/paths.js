@@ -5,7 +5,7 @@ const Path = {
    Login: '/login',
    Register: '/register',
    Details: '/cars/details/:carId',
-   SellCar: '/cars/sell',
+   ListCar: '/cars/list',
    MyGarage: '/cars/garage',
    Logout: '/logout',
    CarDelete: '/cars/delete/:carId',

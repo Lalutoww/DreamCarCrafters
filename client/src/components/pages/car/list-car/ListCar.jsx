@@ -1,9 +1,9 @@
-import styles from './SellCar.module.css';
+import styles from './ListCar.module.css';
 import { useForm } from '../../../../hooks/useForm.js';
 import { useNavigate } from 'react-router-dom';
 import * as carService from '../../../../services/carService.js';
 
-const SellCarFormKeys = {
+const ListCarFormKeys = {
    Manufacturer: 'manufacturer',
    Model: 'model',
    Year: 'year',
@@ -15,7 +15,7 @@ const SellCarFormKeys = {
    Description: 'description',
 };
 
-const SellCar = () => {
+const ListCar = () => {
    const navigate = useNavigate();
    const { formValues, onChangeHandler, onSubmit } = useForm(
       async (formData) => {
@@ -27,21 +27,21 @@ const SellCar = () => {
          }
       },
       {
-         [SellCarFormKeys.Manufacturer]: '',
-         [SellCarFormKeys.Model]: '',
-         [SellCarFormKeys.Year]: '',
-         [SellCarFormKeys.Color]: '',
-         [SellCarFormKeys.Engine]: '',
-         [SellCarFormKeys.Horsepower]: '',
-         [SellCarFormKeys.ImageUrl]: '',
-         [SellCarFormKeys.Price]: '',
-         [SellCarFormKeys.Description]: '',
+         [ListCarFormKeys.Manufacturer]: '',
+         [ListCarFormKeys.Model]: '',
+         [ListCarFormKeys.Year]: '',
+         [ListCarFormKeys.Color]: '',
+         [ListCarFormKeys.Engine]: '',
+         [ListCarFormKeys.Horsepower]: '',
+         [ListCarFormKeys.ImageUrl]: '',
+         [ListCarFormKeys.Price]: '',
+         [ListCarFormKeys.Description]: '',
       }
    );
    return (
       <>
          <div className='header'>
-            <h1>Sell Car</h1>
+            <h1>List Car</h1>
          </div>
          <section className={styles['create-page']} id="createPage">
             <form
@@ -53,8 +53,8 @@ const SellCar = () => {
                <input
                   type="text"
                   id="manufacturer"
-                  name={SellCarFormKeys.Manufacturer}
-                  value={formValues[SellCarFormKeys.Manufacturer]}
+                  name={ListCarFormKeys.Manufacturer}
+                  value={formValues[ListCarFormKeys.Manufacturer]}
                   onChange={onChangeHandler}
                   placeholder="Peugeot"
                />
@@ -63,8 +63,8 @@ const SellCar = () => {
                <input
                   type="text"
                   id="model"
-                  name={SellCarFormKeys.Model}
-                  value={formValues[SellCarFormKeys.Model]}
+                  name={ListCarFormKeys.Model}
+                  value={formValues[ListCarFormKeys.Model]}
                   onChange={onChangeHandler}
                   placeholder="406"
                />
@@ -73,8 +73,8 @@ const SellCar = () => {
                <input
                   type="number"
                   id="year"
-                  name={SellCarFormKeys.Year}
-                  value={formValues[SellCarFormKeys.Year]}
+                  name={ListCarFormKeys.Year}
+                  value={formValues[ListCarFormKeys.Year]}
                   onChange={onChangeHandler}
                   placeholder="2001"
                />
@@ -83,8 +83,8 @@ const SellCar = () => {
                <input
                   type="text"
                   id="color"
-                  name={SellCarFormKeys.Color}
-                  value={formValues[SellCarFormKeys.Color]}
+                  name={ListCarFormKeys.Color}
+                  value={formValues[ListCarFormKeys.Color]}
                   onChange={onChangeHandler}
                   placeholder="Silver"
                />
@@ -93,8 +93,8 @@ const SellCar = () => {
                <input
                   type="text"
                   id="engine"
-                  name={SellCarFormKeys.Engine}
-                  value={formValues[SellCarFormKeys.Engine]}
+                  name={ListCarFormKeys.Engine}
+                  value={formValues[ListCarFormKeys.Engine]}
                   onChange={onChangeHandler}
                   placeholder="2.0 HDI"
                />
@@ -103,8 +103,8 @@ const SellCar = () => {
                <input
                   type="text"
                   id="horsepower"
-                  name={SellCarFormKeys.Horsepower}
-                  value={formValues[SellCarFormKeys.Horsepower]}
+                  name={ListCarFormKeys.Horsepower}
+                  value={formValues[ListCarFormKeys.Horsepower]}
                   onChange={onChangeHandler}
                   placeholder="110"
                />
@@ -112,8 +112,8 @@ const SellCar = () => {
                <input
                   type="text"
                   id="imageUrl"
-                  name={SellCarFormKeys.ImageUrl}
-                  value={formValues[SellCarFormKeys.ImageUrl]}
+                  name={ListCarFormKeys.ImageUrl}
+                  value={formValues[ListCarFormKeys.ImageUrl]}
                   onChange={onChangeHandler}
                   placeholder="Image Url..."
                />
@@ -122,8 +122,8 @@ const SellCar = () => {
                <input
                   type="number"
                   id="price"
-                  name={SellCarFormKeys.Price}
-                  value={formValues[SellCarFormKeys.Price]}
+                  name={ListCarFormKeys.Price}
+                  value={formValues[ListCarFormKeys.Price]}
                   onChange={onChangeHandler}
                   placeholder="1200"
                />
@@ -132,8 +132,8 @@ const SellCar = () => {
                <input
                   type="text"
                   id="description"
-                  name={SellCarFormKeys.Description}
-                  value={formValues[SellCarFormKeys.Description]}
+                  name={ListCarFormKeys.Description}
+                  value={formValues[ListCarFormKeys.Description]}
                   onChange={onChangeHandler}
                   placeholder="Description..."
                />
@@ -145,4 +145,4 @@ const SellCar = () => {
    );
 };
 
-export default SellCar;
+export default ListCar;

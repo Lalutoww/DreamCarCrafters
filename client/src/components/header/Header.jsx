@@ -21,7 +21,7 @@ const Header = () => {
           <li className='guest'><Link to={Path.Register} data-hover="Register">Register</Link></li></>}
             {/* User Only: */}
             
-            {isAuthenticated && (<><li className='user'><Link to={Path.SellCar} data-hover="Sell Car">Sell Car</Link></li>
+            {isAuthenticated && (<><li className='user'><Link to={Path.ListCar} data-hover="List Car">List Car</Link></li>
 		  <li className='user'><Link to={Path.MyGarage} data-hover="My Garage">My Garage</Link></li>
       <li className='user'><Link to={Path.Logout} data-hover="Logout">Logout</Link></li></>)}
 		</ul>

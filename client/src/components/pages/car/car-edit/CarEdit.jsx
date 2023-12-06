@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import * as carService from '../../../../services/carService.js';
 import { useEffect, useState } from 'react';
 
-const SellCarFormKeys = {
+const ListCarFormKeys = {
    Manufacturer: 'manufacturer',
    Model: 'model',
    Year: 'year',
@@ -20,15 +20,15 @@ export default function CarEdit() {
    const navigate = useNavigate();
    const { carId } = useParams();
    const [car, setCar] = useState({
-      [SellCarFormKeys.Manufacturer]: '',
-      [SellCarFormKeys.Model]: '',
-      [SellCarFormKeys.Year]: '',
-      [SellCarFormKeys.Color]: '',
-      [SellCarFormKeys.Engine]: '',
-      [SellCarFormKeys.Horsepower]: '',
-      [SellCarFormKeys.ImageUrl]: '',
-      [SellCarFormKeys.Price]: '',
-      [SellCarFormKeys.Description]: '',
+      [ListCarFormKeys.Manufacturer]: '',
+      [ListCarFormKeys.Model]: '',
+      [ListCarFormKeys.Year]: '',
+      [ListCarFormKeys.Color]: '',
+      [ListCarFormKeys.Engine]: '',
+      [ListCarFormKeys.Horsepower]: '',
+      [ListCarFormKeys.ImageUrl]: '',
+      [ListCarFormKeys.Price]: '',
+      [ListCarFormKeys.Description]: '',
    });
 
    useEffect(() => {
@@ -70,8 +70,8 @@ export default function CarEdit() {
                <input
                   type="text"
                   id="manufacturer"
-                  name={SellCarFormKeys.Manufacturer}
-                  value={car[SellCarFormKeys.Manufacturer]}
+                  name={ListCarFormKeys.Manufacturer}
+                  value={car[ListCarFormKeys.Manufacturer]}
                   onChange={onChangeHandler}
                   placeholder="Peugeot"
                />
@@ -80,8 +80,8 @@ export default function CarEdit() {
                <input
                   type="text"
                   id="model"
-                  name={SellCarFormKeys.Model}
-                  value={car[SellCarFormKeys.Model]}
+                  name={ListCarFormKeys.Model}
+                  value={car[ListCarFormKeys.Model]}
                   onChange={onChangeHandler}
                   placeholder="406"
                />
@@ -90,8 +90,8 @@ export default function CarEdit() {
                <input
                   type="number"
                   id="year"
-                  name={SellCarFormKeys.Year}
-                  value={car[SellCarFormKeys.Year]}
+                  name={ListCarFormKeys.Year}
+                  value={car[ListCarFormKeys.Year]}
                   onChange={onChangeHandler}
                   placeholder="2001"
                />
@@ -100,8 +100,8 @@ export default function CarEdit() {
                <input
                   type="text"
                   id="color"
-                  name={SellCarFormKeys.Color}
-                  value={car[SellCarFormKeys.Color]}
+                  name={ListCarFormKeys.Color}
+                  value={car[ListCarFormKeys.Color]}
                   onChange={onChangeHandler}
                   placeholder="Silver"
                />
@@ -110,8 +110,8 @@ export default function CarEdit() {
                <input
                   type="text"
                   id="engine"
-                  name={SellCarFormKeys.Engine}
-                  value={car[SellCarFormKeys.Engine]}
+                  name={ListCarFormKeys.Engine}
+                  value={car[ListCarFormKeys.Engine]}
                   onChange={onChangeHandler}
                   placeholder="2.0 HDI"
                />
@@ -120,8 +120,8 @@ export default function CarEdit() {
                <input
                   type="text"
                   id="horsepower"
-                  name={SellCarFormKeys.Horsepower}
-                  value={car[SellCarFormKeys.Horsepower]}
+                  name={ListCarFormKeys.Horsepower}
+                  value={car[ListCarFormKeys.Horsepower]}
                   onChange={onChangeHandler}
                   placeholder="110"
                />
@@ -129,8 +129,8 @@ export default function CarEdit() {
                <input
                   type="text"
                   id="imageUrl"
-                  name={SellCarFormKeys.ImageUrl}
-                  value={car[SellCarFormKeys.ImageUrl]}
+                  name={ListCarFormKeys.ImageUrl}
+                  value={car[ListCarFormKeys.ImageUrl]}
                   onChange={onChangeHandler}
                   placeholder="Image Url..."
                />
@@ -139,8 +139,8 @@ export default function CarEdit() {
                <input
                   type="number"
                   id="price"
-                  name={SellCarFormKeys.Price}
-                  value={car[SellCarFormKeys.Price]}
+                  name={ListCarFormKeys.Price}
+                  value={car[ListCarFormKeys.Price]}
                   onChange={onChangeHandler}
                   placeholder="1200"
                />
@@ -149,8 +149,8 @@ export default function CarEdit() {
                <input
                   type="text"
                   id="description"
-                  name={SellCarFormKeys.Description}
-                  value={car[SellCarFormKeys.Description]}
+                  name={ListCarFormKeys.Description}
+                  value={car[ListCarFormKeys.Description]}
                   onChange={onChangeHandler}
                   placeholder="Description..."
                />
