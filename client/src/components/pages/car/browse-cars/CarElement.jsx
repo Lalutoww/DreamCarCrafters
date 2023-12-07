@@ -1,9 +1,8 @@
 import styles from './BrowseCars.module.css';
 
 import { Link } from 'react-router-dom';
-import separateNumbers from '../../../../utils/separateNumbers.js'
 
-const CarElement = ({ manufacturer, model, price, imageUrl, _id }) => {
+const CarElement = ({ manufacturer, model, ownerName, imageUrl, _id }) => {
    return (
       <Link
          to={`/cars/details/${_id}`}
@@ -13,7 +12,7 @@ const CarElement = ({ manufacturer, model, price, imageUrl, _id }) => {
          <h3 className={styles['car-name']}>
             {manufacturer} {model}
          </h3>
-         <span>Price: ${separateNumbers(price)}</span>
+         <span>Owner: {ownerName}</span>
       </Link>
    );
 };

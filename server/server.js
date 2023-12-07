@@ -1482,7 +1482,7 @@
             horsepower: '110',
             imageUrl:
                'https://www.otterymotorservices.co.uk/assets/338682/large/71ac86976fed5a93f29be5528f838159_338682_10.jpg',
-            price: '1500',
+            ownerName: 'Peter',
             description: 'Very good car',
             _createdOn: 1701685162086,
             _id: '83c4426a-0a9c-4811-aef5-9f85eaef46ff',
@@ -1494,8 +1494,10 @@
             carId: '83c4426a-0a9c-4811-aef5-9f85eaef46ff',
             name: 'DRIVEGUARD PLUS',
             manufacturer: 'BRIDGESTONE',
-            description: 'Touring tire comfort meets all-season confidence in the DriveGuard Plus. With improved performance and extended mobility, the DriveGuard Plus gets you where you need to go safely.',
-            imageUrl: 'https://assets.bridgestonetire.com/content/dam/consumer/bst/shared/tires/driveguard-plus/tilted.jpg',
+            description:
+               'Touring tire comfort meets all-season confidence in the DriveGuard Plus. With improved performance and extended mobility, the DriveGuard Plus gets you where you need to go safely.',
+            imageUrl:
+               'https://assets.bridgestonetire.com/content/dam/consumer/bst/shared/tires/driveguard-plus/tilted.jpg',
             _createdOn: 1701871769710,
             _id: '7e9b1e49-7fd9-4f7e-8c8f-30e3d6e94ec4',
          },

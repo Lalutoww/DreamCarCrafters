@@ -50,8 +50,7 @@ export const AuthProvider = ({ children }) => {
 
    const registerSubmitHandler = async (values) => {
       try {
-         if (values.password !== values.rePassword)
-            throw { message: `Passwords don't match` };
+         errorHandler.registerErrorHandler(values);
          const result = await authService.register(
             values.email,
             values.username,

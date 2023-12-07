@@ -19,12 +19,12 @@ const ListCarFormKeys = {
    Engine: 'engine',
    Horsepower: 'horsepower',
    ImageUrl: 'imageUrl',
-   Price: 'price',
+   OwnerName: 'ownerName',
    Description: 'description',
 };
 
 const ListCar = () => {
-   const { show, closeHandler, scrollToTopAndShowError } =
+   const { show, closeHandler, scrollToTopAndShowError, username } =
       useContext(AuthContext);
    const navigate = useNavigate();
    const { formValues, onChangeHandler, onSubmit } = useForm(
@@ -45,7 +45,7 @@ const ListCar = () => {
          [ListCarFormKeys.Engine]: '',
          [ListCarFormKeys.Horsepower]: '',
          [ListCarFormKeys.ImageUrl]: '',
-         [ListCarFormKeys.Price]: '',
+         [ListCarFormKeys.OwnerName]: username,
          [ListCarFormKeys.Description]: '',
       }
    );
@@ -129,16 +129,6 @@ const ListCar = () => {
                   value={formValues[ListCarFormKeys.ImageUrl]}
                   onChange={onChangeHandler}
                   placeholder="Image Url..."
-               />
-
-               <label htmlFor="price">Price:</label>
-               <input
-                  type="number"
-                  id="price"
-                  name={ListCarFormKeys.Price}
-                  value={formValues[ListCarFormKeys.Price]}
-                  onChange={onChangeHandler}
-                  placeholder="1200"
                />
 
                <label htmlFor="description">Description:</label>

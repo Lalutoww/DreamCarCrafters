@@ -36,3 +36,12 @@ export const createPartsErrorHandler = (values) => {
       throw { message: `Please provide valid image link` };
    }
 };
+
+export const registerErrorHandler = (values) => {
+   if (values.password !== values.rePassword) {
+      throw { message: `Passwords don't match` };
+   }
+   if (values.username.trim().length <= 0) {
+      throw { message: `Please enter your username` };
+   }
+};

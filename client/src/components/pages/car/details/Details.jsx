@@ -11,7 +11,6 @@ import * as carService from '../../../../services/carService.js';
 import * as partService from '../../../../services/partService.js';
 import * as likeService from '../../../../services/likeService.js';
 import AuthContext from '../../../../contexts/authContext.jsx';
-import separateNumbers from '../../../../utils/separateNumbers.js';
 import PartItem from './partItem.jsx';
 
 const Details = () => {
@@ -85,7 +84,7 @@ const Details = () => {
                   <h3>Model: {car.model}</h3>
                   <h3>Year of Production: {car.year}</h3>
                   <h3>Description: {car.description}</h3>
-                  <h2>Price: ${separateNumbers(car.price)}</h2>
+                  <h2>Owner: {car.ownerName}</h2>
                </div>
 
                
