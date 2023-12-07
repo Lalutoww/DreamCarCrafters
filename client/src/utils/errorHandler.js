@@ -1,4 +1,7 @@
 export const listCarErrorHandler = (values) => {
+    if (!values.imageUrl.startsWith('http://') && !values.imageUrl.startsWith('https://')) {
+      throw { message: `Please provide valid image link` };
+   }
    for (const key in values) {
       const inputField = values[key];
       if (inputField.trim().length <= 0) {
@@ -10,5 +13,8 @@ export const listCarErrorHandler = (values) => {
    }
    if (values.price < 0) {
       throw { message: `Price must not be a negative number` };
+   }
+   if (values.horsepower <= 0) {
+      throw { message: `Is your car really that slow ?` };
    }
 };

@@ -100,7 +100,7 @@ const ListCar = () => {
 
                <label htmlFor="horsepower">Horsepower:</label>
                <input
-                  type="text"
+                  type="number"
                   id="horsepower"
                   name={ListCarFormKeys.Horsepower}
                   value={formValues[ListCarFormKeys.Horsepower]}
