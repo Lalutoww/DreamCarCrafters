@@ -1,8 +1,11 @@
 import styles from './CarEdit.module.css';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useContext, useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 
 import * as carService from '../../../../services/carService.js';
-import { useEffect, useState } from 'react';
+import { listEditCarErrorHandler } from '../../../../utils/errorHandler.js';
+import AuthContext from '../../../../contexts/authContext.jsx';
+import ErrorAlert from '../../../errorAlert/ErrorAlert.jsx';
 
 const ListCarFormKeys = {
    Manufacturer: 'manufacturer',
@@ -17,8 +20,9 @@ const ListCarFormKeys = {
 };
 
 export default function CarEdit() {
-   const navigate = useNavigate();
    const { carId } = useParams();
+   const navigate = useNavigate();
+   const { show, closeHandler, scrollToTopAndShowError } = useContext(AuthContext);
    const [car, setCar] = useState({
       [ListCarFormKeys.Manufacturer]: '',
       [ListCarFormKeys.Model]: '',
@@ -37,14 +41,25 @@ export default function CarEdit() {
       });
    }, [carId]);
 
-   const onSubmit = async (e) => {
+   const editCarSubmitHandler = async (e) => {
       e.preventDefault();
       try {
+         listEditCarErrorHandler({
+            manufacturer: car.manufacturer,
+            model: car.model,
+            year: car.year,
+            color: car.color,
+            engine: car.engine,
+            horsepower: car.horsepower,
+            imageUrl: car.imageUrl,
+            price: car.price,
+            description: car.description,
+         });
          await carService.edit(carId, car);
 
          navigate('/cars/browse');
-      } catch (err) {
-         console.log(err);
+      } catch (error) {
+         scrollToTopAndShowError(error)
       }
    };
 
@@ -57,12 +72,13 @@ export default function CarEdit() {
 
    return (
       <>
+      {show && <ErrorAlert closeHandler={closeHandler} />}
          <div className="header">
             <h1>Edit Car</h1>
          </div>
          <section className={styles['create-page']} id="createPage">
             <form
-               onSubmit={onSubmit}
+               onSubmit={editCarSubmitHandler}
                className={styles['create-form']}
                id="createForm"
             >

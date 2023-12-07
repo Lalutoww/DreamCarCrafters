@@ -2,7 +2,7 @@ import { createContext, useState, useEffect } from 'react';
 import usePersistedState from '../hooks/usePersistedState.js';
 import * as authService from '../services/authService.js';
 import * as carService from '../services/carService.js';
-import * as errorHandler from '../utils/errorHandler.js'
+import * as errorHandler from '../utils/errorHandler.js';
 import { useNavigate } from 'react-router-dom';
 
 import Path from '../paths.js';
@@ -29,6 +29,11 @@ export const AuthProvider = ({ children }) => {
    const closeHandler = () => {
       return setShow(false);
    };
+   const scrollToTopAndShowError = (error) => {
+      window.scrollTo(0, 0);
+      setShow(true);
+      setError({ ...error });
+   };
 
    const loginSubmitHandler = async (values) => {
       try {
@@ -39,8 +44,7 @@ export const AuthProvider = ({ children }) => {
 
          navigate(Path.Home);
       } catch (error) {
-         setShow(true);
-         setError({ ...error });
+         scrollToTopAndShowError(error);
       }
    };
 
@@ -59,8 +63,7 @@ export const AuthProvider = ({ children }) => {
 
          navigate(Path.Home);
       } catch (error) {
-         setShow(true);
-         setError({ ...error });
+         scrollToTopAndShowError(error)
       }
    };
 
@@ -72,18 +75,17 @@ export const AuthProvider = ({ children }) => {
 
    const listCarSubmitHandler = async (values) => {
       try {
-         errorHandler.listCarErrorHandler(values);
+         errorHandler.listEditCarErrorHandler(values);
          await carService.create(values);
          navigate('/cars/browse');
       } catch (error) {
-         window.scrollTo(0, 0);
-         setShow(true);
-         setError({ ...error });
+         scrollToTopAndShowError(error);
       }
    };
 
    const contextValues = {
       closeHandler,
+      scrollToTopAndShowError,
       loginSubmitHandler,
       registerSubmitHandler,
       logoutHandler,
