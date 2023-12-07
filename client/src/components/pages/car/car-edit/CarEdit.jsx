@@ -15,7 +15,6 @@ const ListCarFormKeys = {
    Engine: 'engine',
    Horsepower: 'horsepower',
    ImageUrl: 'imageUrl',
-   Price: 'price',
    Description: 'description',
 };
 
@@ -31,7 +30,6 @@ export default function CarEdit() {
       [ListCarFormKeys.Engine]: '',
       [ListCarFormKeys.Horsepower]: '',
       [ListCarFormKeys.ImageUrl]: '',
-      [ListCarFormKeys.Price]: '',
       [ListCarFormKeys.Description]: '',
    });
 
@@ -52,7 +50,6 @@ export default function CarEdit() {
             engine: car.engine,
             horsepower: car.horsepower,
             imageUrl: car.imageUrl,
-            price: car.price,
             description: car.description,
          });
          await carService.edit(carId, car);
@@ -149,16 +146,6 @@ export default function CarEdit() {
                   value={car[ListCarFormKeys.ImageUrl]}
                   onChange={onChangeHandler}
                   placeholder="Image Url..."
-               />
-
-               <label htmlFor="price">Price:</label>
-               <input
-                  type="number"
-                  id="price"
-                  name={ListCarFormKeys.Price}
-                  value={car[ListCarFormKeys.Price]}
-                  onChange={onChangeHandler}
-                  placeholder="1200"
                />
 
                <label htmlFor="description">Description:</label>

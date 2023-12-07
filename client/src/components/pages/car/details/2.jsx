@@ -73,30 +73,25 @@ const Details = () => {
          <div className="header">
             <h1>Details Page</h1>
          </div>
-         <div className={styles['container']}>
-            <img className={styles['detail-image']}src={car.imageUrl} alt="Car Image" />
-            <h2>{car.manufacturer} {car.model} | Likes: {likes.length}</h2>
-            <p>
-               <strong>Owner:</strong> {car.ownerName}
-            </p>
-            <p>
-               <strong>Year:</strong> {car.year}
-            </p>
-            <p>
-               <strong>Color:</strong> {car.color}
-            </p>
-            <p>
-               <strong>Engine:</strong> {car.engine}
-            </p>
-            <p>
-               <strong>Horsepower:</strong> {car.horsepower} HP
-            </p>
-            <p>
-               <strong>Description:</strong> {car.description}
-            </p>
+         <section className={styles['details-page']} id="detailsPage">
+            <div className={styles['details-info']} id="detailsInfo">
+               <div className={styles['info']}>
+                  <img src={car.imageUrl} />
+               </div>
 
-            <div className={styles["button-container"]}>
-            {isAuthenticated && !hasLiked && userId !== car._ownerId && (
+               <div className={styles['info']}>
+                  <h3>Manufacturer: {car.manufacturer}</h3>
+                  <h3>Model: {car.model}</h3>
+                  <h3>Year of Production: {car.year}</h3>
+                  <h3>Description: {car.description}</h3>
+                  <h2>Owner: {car.ownerName}</h2>
+               </div>
+
+               <div className={styles['likes']}>
+                  <h2>Likes: {likes.length}</h2>
+               </div>
+               <div className={styles['buttons like-btn']}>
+                  {isAuthenticated && !hasLiked && userId !== car._ownerId && (
                      <button
                         className={styles['button']}
                         onClick={likeButtonClickHandler}
@@ -106,9 +101,12 @@ const Details = () => {
                   )}
 
                   {isAuthenticated && hasLiked && userId !== car._ownerId && (
-                     <p className={styles['already-liked']}>Thank you for your like!</p>
+                     <p className={styles['already-liked']}>
+                        Thank you for your like!
+                     </p>
                   )}
-               {isAuthenticated && userId === car._ownerId && (
+
+                  {isAuthenticated && userId === car._ownerId && (
                      <>
                         <Link
                            to={`/parts/create/${carId}`}
@@ -130,9 +128,8 @@ const Details = () => {
                         </button>
                      </>
                   )}
-            </div>
-            <h3 className={styles['tuning-header']}>Tuning</h3>
-            {parts.length > 0 && (
+               </div>
+               {parts.length > 0 && (
                   <Container>
                      <Row lg={3}>
                         {parts.map((part) => (
@@ -146,7 +143,8 @@ const Details = () => {
                      This car has no tuning yet!
                   </h3>
                )}
-         </div>
+            </div>
+         </section>
       </>
    );
 };

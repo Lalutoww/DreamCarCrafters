@@ -1,94 +1,86 @@
-.details-page {
-   text-align: center;
-   margin-top: 5px;
-   position: relative;
-   padding-bottom: 6px;
-}
-
-.details-info {
-   display: inline-block;
-   margin-top: 1%;
-   background: rgba(0, 0, 0, 0.703);
-   width: 60%;
-   border: 1px solid white;
-   border-radius: 20px;
-   margin-bottom: 5%;
-}
-
-.details-info h1 {
-   color: white;
-   letter-spacing: 2px;
-}
-
-.details-info h2 {
-   font-size: 26px;
-   margin-top: 30px;
-}
-
-.details-info h3 {
-   font-size: 20px;
-   width: 70%;
-   display: inline-block;
-}
-
-.info {
-   color: white;
-   letter-spacing: 1px;
-   display: inline-block;
-   font-weight: bold;
-}
-
-.info img {
-   width: 500px;
-   height: 250px;
-}
-
-.buttons {
-   margin-top: 2%;
-   margin-bottom: 2%;
-   font-weight: bold;
-}
-
-.buttons p {
-   display: inline-block;
-   background: white;
-   border: 1px solid black;
-   border-radius: 10px;
-   font-size: 16px;
-   width: 40%;
+.container {
+   max-width: 800px;
+   margin: 0px auto;
+   background-color: rgba(0, 0, 0, 0.5);
    padding: 10px;
+   border-radius: 8px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   display: flex;
+   flex-direction: column;
+   align-items: center;
 }
 
-.buttons p span {
-   margin-top: 5%;
-   margin-bottom: 5%;
-   font-size: 20px;
-}
-.likes {
-   color:white;
-   font-weight: 500;
+.detail-image {
+   width: auto; /* Adjust the percentage as needed to make the image smaller */
+   height: 320px; /* Maintain the aspect ratio */
+   max-width: 100%;
+   max-height: 100%; /* Limit the maximum height to maintain responsiveness */
+   border-radius: 8px;
+   border: 5px solid black;
+   box-sizing: border-box;
 }
 
-.already-liked{
-   font-style: italic;
+h2 {
    color: white;
-   font-size: 18px;
 }
 
-.no-tune{
-   margin-top: 5%;
-   font-style: bold;
-   font-weight: 800;
-   color: white;
+p {
+   color: whitesmoke;
+   margin-bottom: 2px;
+   word-wrap: break-word;
+}
+
+strong {
+   color: gray;
+   text-align: center;
+   margin-bottom: 10px;
+}
+
+.button-container {
+   display: flex;
+   justify-content: space-between;
+   margin-top: 6px;
 }
 
 .button {
-   color: black;
-   font-size: 20px;
-   font-weight: bold;
+   padding: 10px 20px;
+   background-color: #333;
+   color: white;
+   border: none;
+   border-radius: 4px;
    cursor: pointer;
-   background-color: white;
-   border: 1px solid black;
-   border-radius: 10px;
-   padding: 10px;
 }
+
+.no-tune {
+   color: white;
+   font-weight: 200;
+}
+
+/* Your existing styles... */
+
+.tuning-header {
+   position: relative;
+   color: #ffffff;
+   font-size: 42px;
+   margin-bottom: 5px;
+}
+
+.tuning-header::before,
+.tuning-header::after {
+   content: '';
+   position: absolute;
+   top: 50%;
+   width: 150px;
+   height: 2px; /* Adjust the height of the lines as needed */
+   background-color: white; /* Line color */
+}
+
+.tuning-header::before {
+   left: -140px; 
+}
+
+.tuning-header::after {
+   right: -150px; /* Adjust the distance of the line from the text as needed */
+}
+
+/* Your existing styles... */

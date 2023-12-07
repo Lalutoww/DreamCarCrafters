@@ -1495,7 +1495,7 @@
             name: 'DRIVEGUARD PLUS',
             manufacturer: 'BRIDGESTONE',
             description:
-               'Touring tire comfort meets all-season confidence in the DriveGuard Plus. With improved performance and extended mobility, the DriveGuard Plus gets you where you need to go safely.',
+               'Touring tire comfort meets all-season confidence in the DriveGuard Plus. With improved performance and extended mobility, they get you where you need to go.',
             imageUrl:
                'https://assets.bridgestonetire.com/content/dam/consumer/bst/shared/tires/driveguard-plus/tilted.jpg',
             _createdOn: 1701871769710,

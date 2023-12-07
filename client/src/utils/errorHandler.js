@@ -14,9 +14,6 @@ export const listEditCarErrorHandler = (values) => {
    ) {
       throw { message: `Please provide valid image link` };
    }
-   if (values.price < 0) {
-      throw { message: `Price must not be a negative number` };
-   }
    if (values.horsepower <= 0) {
       throw { message: `Is your car really that slow ?` };
    }

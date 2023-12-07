@@ -30,19 +30,14 @@ const BrowseCars = () => {
 
    return (
       <>
-         <div className='header'>
+         <div className="header">
             <h1>Car Catalogue</h1>
          </div>
-         <section id="viewCatalog">
-            <div className={styles['added-cars']}>
-               {allCars.map((car) => (
-                  <CarElement
-                     key={car._id}
-                     {...car}
-                  />
-               ))}
-            </div>
-         </section>
+         <div className={styles['catalogue']}>
+            {allCars.map((car) => (
+               <CarElement key={car._id} {...car} />
+            ))}
+         </div>
       </>
    );
 };
