@@ -1,6 +1,8 @@
 import { createContext, useState, useEffect } from 'react';
 import usePersistedState from '../hooks/usePersistedState.js';
 import * as authService from '../services/authService.js';
+import * as carService from '../services/carService.js';
+import * as errorHandler from '../utils/errorHandler.js'
 import { useNavigate } from 'react-router-dom';
 
 import Path from '../paths.js';
@@ -19,45 +21,46 @@ export const AuthProvider = ({ children }) => {
    const [error, setError] = useState({});
    useEffect(() => {
       const timer = setTimeout(() => {
-        setShow(false);
+         setShow(false);
       }, 2000);
       return () => clearTimeout(timer);
-    }, [show]);
+   }, [show]);
 
-   const closeHandler = ()=>{
+   const closeHandler = () => {
       return setShow(false);
-   }
-   
+   };
+
    const loginSubmitHandler = async (values) => {
-      try{
+      try {
          const result = await authService.login(values.email, values.password);
 
-      setAuth(result);
-      localStorage.setItem('accessToken', result.accessToken);
+         setAuth(result);
+         localStorage.setItem('accessToken', result.accessToken);
 
-      navigate(Path.Home);
-      }catch(error){
+         navigate(Path.Home);
+      } catch (error) {
          setShow(true);
-         setError({...error});
+         setError({ ...error });
       }
    };
 
    const registerSubmitHandler = async (values) => {
-      try{
-         if(values.password !== values.rePassword) throw {message: `Passwords don't match`}
+      try {
+         if (values.password !== values.rePassword)
+            throw { message: `Passwords don't match` };
          const result = await authService.register(
             values.email,
             values.username,
             values.password
          );
-   
+
          setAuth(result);
          localStorage.setItem('accessToken', result.accessToken);
-   
-         navigate(Path.Home);  
-      }catch(error){
+
+         navigate(Path.Home);
+      } catch (error) {
          setShow(true);
-         setError({...error});
+         setError({ ...error });
       }
    };
 
@@ -67,11 +70,24 @@ export const AuthProvider = ({ children }) => {
       localStorage.removeItem('accessToken');
    };
 
+   const listCarSubmitHandler = async (values) => {
+      try {
+         errorHandler.listCarErrorHandler(values);
+         await carService.create(values);
+         navigate('/cars/browse');
+      } catch (error) {
+         window.scrollTo(0, 0);
+         setShow(true);
+         setError({ ...error });
+      }
+   };
+
    const contextValues = {
+      closeHandler,
       loginSubmitHandler,
       registerSubmitHandler,
       logoutHandler,
-      closeHandler,
+      listCarSubmitHandler,
       show,
       errorMsg: error.message,
       username: auth.username || auth.email,

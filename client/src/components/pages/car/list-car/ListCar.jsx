@@ -1,7 +1,11 @@
 import styles from './ListCar.module.css';
+
+import { useContext } from 'react';
+
 import { useForm } from '../../../../hooks/useForm.js';
-import { useNavigate } from 'react-router-dom';
-import * as carService from '../../../../services/carService.js';
+import AuthContext from '../../../../contexts/authContext.jsx';
+
+import ErrorAlert from '../../../errorAlert/ErrorAlert.jsx';
 
 const ListCarFormKeys = {
    Manufacturer: 'manufacturer',
@@ -16,16 +20,9 @@ const ListCarFormKeys = {
 };
 
 const ListCar = () => {
-   const navigate = useNavigate();
+   const { listCarSubmitHandler, show, closeHandler } = useContext(AuthContext);
    const { formValues, onChangeHandler, onSubmit } = useForm(
-      async (formData) => {
-         try {
-            await carService.create(formData);
-            navigate('/cars/browse');
-         } catch (err) {
-            console.log(err);
-         }
-      },
+      listCarSubmitHandler,
       {
          [ListCarFormKeys.Manufacturer]: '',
          [ListCarFormKeys.Model]: '',
@@ -38,9 +35,11 @@ const ListCar = () => {
          [ListCarFormKeys.Description]: '',
       }
    );
+
    return (
       <>
-         <div className='header'>
+         {show && <ErrorAlert closeHandler={closeHandler} />}
+         <div className="header">
             <h1>List Car</h1>
          </div>
          <section className={styles['create-page']} id="createPage">

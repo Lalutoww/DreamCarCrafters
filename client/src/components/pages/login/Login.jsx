@@ -2,7 +2,7 @@ import styles from './Login.module.css';
 
 import { useForm } from '../../../hooks/useForm.js';
 import AuthContext from '../../../contexts/authContext.jsx';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 
 import ErrorAlert from '../../errorAlert/ErrorAlert.jsx'
 
