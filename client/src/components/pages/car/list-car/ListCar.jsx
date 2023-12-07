@@ -1,9 +1,13 @@
 import styles from './ListCar.module.css';
 
 import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { useForm } from '../../../../hooks/useForm.js';
 import AuthContext from '../../../../contexts/authContext.jsx';
+import { listEditCarErrorHandler } from '../../../../utils/errorHandler.js';
+import * as carService from '../../../../services/carService.js'
+import Path from '../../../../paths.js';
 
 import ErrorAlert from '../../../errorAlert/ErrorAlert.jsx';
 
@@ -20,9 +24,19 @@ const ListCarFormKeys = {
 };
 
 const ListCar = () => {
-   const { listCarSubmitHandler, show, closeHandler } = useContext(AuthContext);
+   const { show, closeHandler, scrollToTopAndShowError } =
+      useContext(AuthContext);
+   const navigate = useNavigate();
    const { formValues, onChangeHandler, onSubmit } = useForm(
-      listCarSubmitHandler,
+      async (values) => {
+         try {
+            listEditCarErrorHandler(values);
+            await carService.create(values);
+            navigate(Path.BrowseCars);
+         } catch (error) {
+            scrollToTopAndShowError(error);
+         }
+      },
       {
          [ListCarFormKeys.Manufacturer]: '',
          [ListCarFormKeys.Model]: '',

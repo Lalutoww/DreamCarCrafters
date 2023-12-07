@@ -1,7 +1,6 @@
 import { createContext, useState, useEffect } from 'react';
 import usePersistedState from '../hooks/usePersistedState.js';
 import * as authService from '../services/authService.js';
-import * as carService from '../services/carService.js';
 import * as errorHandler from '../utils/errorHandler.js';
 import { useNavigate } from 'react-router-dom';
 
@@ -74,23 +73,12 @@ export const AuthProvider = ({ children }) => {
       localStorage.removeItem('accessToken');
    };
 
-   const listCarSubmitHandler = async (values) => {
-      try {
-         errorHandler.listEditCarErrorHandler(values);
-         await carService.create(values);
-         navigate('/cars/browse');
-      } catch (error) {
-         scrollToTopAndShowError(error);
-      }
-   };
-
    const contextValues = {
       closeHandler,
       scrollToTopAndShowError,
       loginSubmitHandler,
       registerSubmitHandler,
       logoutHandler,
-      listCarSubmitHandler,
       show,
       errorMsg: error.message,
       username: auth.username || auth.email,
