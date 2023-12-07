@@ -1,9 +1,14 @@
 import styles from './CreateParts.module.css';
 
+import { useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
 import { useForm } from '../../../hooks/useForm.js';
+import {createPartsErrorHandler} from '../../../utils/errorHandler.js'
 import * as partService from '../../../services/partService.js';
+import AuthContext from '../../../contexts/authContext.jsx';
+
+import ErrorAlert from '../../errorAlert/ErrorAlert.jsx';
 
 const PartFormKeys = {
    Name: 'name',
@@ -13,15 +18,18 @@ const PartFormKeys = {
 };
 
 const CreateParts = () => {
-   const { carId } = useParams();
+   const {show, closeHandler, scrollToTopAndShowError} = useContext(AuthContext);
    const navigate = useNavigate();
+   const {carId} = useParams();
    const { formValues, onChangeHandler, onSubmit } = useForm(
-      async (formData) => {
+      async (values) => {
          try {
-            await partService.create(carId, formData);
+            createPartsErrorHandler(values);
+            await partService.create(carId, values);
             navigate(`/cars/details/${carId}`);
-         } catch (err) {
-            console.log(err);
+         } catch (error) {
+            console.log(error);
+            scrollToTopAndShowError(error);
          }
       },
       {
@@ -33,6 +41,7 @@ const CreateParts = () => {
    );
    return (
       <>
+      {show && <ErrorAlert closeHandler={closeHandler}/>}
          <div className='header'>
             <h1>Add Part</h1>
          </div>

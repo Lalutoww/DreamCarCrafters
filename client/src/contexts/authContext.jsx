@@ -14,11 +14,12 @@ export const AuthProvider = ({ children }) => {
    const navigate = useNavigate();
    const [auth, setAuth] = usePersistedState('auth', () => {
       localStorage.removeItem('accessToken');
-
       return {};
    });
+
    const [show, setShow] = useState(false);
    const [error, setError] = useState({});
+
    useEffect(() => {
       const timer = setTimeout(() => {
          setShow(false);
@@ -63,7 +64,7 @@ export const AuthProvider = ({ children }) => {
 
          navigate(Path.Home);
       } catch (error) {
-         scrollToTopAndShowError(error)
+         scrollToTopAndShowError(error);
       }
    };
 

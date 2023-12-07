@@ -21,3 +21,18 @@ export const listEditCarErrorHandler = (values) => {
       throw { message: `Is your car really that slow ?` };
    }
 };
+
+export const createPartsErrorHandler = (values) => {
+   for (const key in values) {
+      const inputField = values[key];
+      if (inputField.trim().length <= 0) {
+         throw { message: `${key} field is empty` };
+      }
+   }
+   if (
+      !values.imageUrl.startsWith('http://') &&
+      !values.imageUrl.startsWith('https://')
+   ) {
+      throw { message: `Please provide valid image link` };
+   }
+};
