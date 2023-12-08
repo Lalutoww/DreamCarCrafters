@@ -27,10 +27,8 @@ npm run dev
 👤 **Martin Lalutov**
 
 * Github: [@Lalutoww](https://github.com/Lalutoww)
+* LinkedIn: [@Martin Lalutov](https://www.linkedin.com/in/martin-lalutov-0567732a1/)
 
 ## Show your support
 
 Give a ⭐️ if this project helped you!
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
