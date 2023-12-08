@@ -27,7 +27,10 @@ body {
    color: white;
    -webkit-text-stroke: 2px black;
 }
-
+.clear {
+   clear: both;
+   height: 45px;
+}
 li {
    list-style: none;
 }

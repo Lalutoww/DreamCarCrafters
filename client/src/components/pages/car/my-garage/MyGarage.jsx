@@ -32,19 +32,14 @@ const MyGarage = () => {
    }
    return (
       <>
-         <div className='header'>
+         <div className="header">
             <h1>My Garage</h1>
          </div>
-         <section id="viewCatalog" className={styles['background-img']}>
-            <div className={styles['added-cars']}>
-               {myCars.map((car) => (
-                  <MyCarElement
-                     key={car._id}
-                     {...car}
-                  />
-               ))}
-            </div>
-         </section>
+         <div className={styles['garage']}>
+            {myCars.map((car) => (
+               <MyCarElement key={car._id} {...car} />
+            ))}
+         </div>
       </>
    );
 };

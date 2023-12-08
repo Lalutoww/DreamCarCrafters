@@ -6,8 +6,8 @@ function AlertDismissibleExample(
 ) {
     const {errorMsg, closeHandler } = useContext(AuthContext);
     return (
-      <Alert style={{ position: "absolute", top: 50, left: 999, right: 0, zIndex: 999 }} variant="danger" onClose={() => closeHandler()} dismissible>
-        <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
+      <Alert style={{ color: "black", position: "absolute", top: 50, left: 999, right: 0, zIndex: 999 }} variant="danger" onClose={() => closeHandler()} dismissible>
+        <Alert.Heading>Incorrect input</Alert.Heading>
         <p>
           {errorMsg}
         </p>

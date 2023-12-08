@@ -76,6 +76,7 @@ const Details = () => {
          <div className={styles['container']}>
             <img className={styles['detail-image']}src={car.imageUrl} alt="Car Image" />
             <h2>{car.manufacturer} {car.model} | Likes: {likes.length}</h2>
+            <div className={styles['info']}>
             <p>
                <strong>Owner:</strong> {car.ownerName}
             </p>
@@ -94,7 +95,7 @@ const Details = () => {
             <p>
                <strong>Description:</strong> {car.description}
             </p>
-
+         </div>
             <div className={styles["button-container"]}>
             {isAuthenticated && !hasLiked && userId !== car._ownerId && (
                      <button

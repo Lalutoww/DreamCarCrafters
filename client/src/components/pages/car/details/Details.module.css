@@ -24,7 +24,7 @@ h2 {
    color: white;
 }
 
-p {
+.info p {
    color: whitesmoke;
    margin-bottom: 2px;
    word-wrap: break-word;

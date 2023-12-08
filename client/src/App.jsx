@@ -2,6 +2,9 @@ import { Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './contexts/authContext.jsx';
 import Path from './paths.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import AuthGuard from './components/guards/AuthGuard.jsx';
+import GuestGuard from './components/guards/GuestGuard.jsx';
+
 import Footer from './components/footer/Footer.jsx';
 import Header from './components/header/Header.jsx';
 import BrowseCars from './components/pages/car/browse-cars/BrowseCars.jsx';
@@ -15,8 +18,7 @@ import Details from './components/pages/car/details/Details.jsx';
 import Logout from './components/logout/Logout.jsx';
 import CarEdit from './components/pages/car/car-edit/CarEdit.jsx';
 import ErrorBoundary from './components/errorBoundary/ErrorBoundary.jsx';
-import AuthGuard from './components/guards/AuthGuard.jsx';
-import GuestGuard from './components/guards/GuestGuard.jsx';
+import ClearDiv from './components/clearDiv/ClearDiv.jsx';
 
 function App() {
    return (
@@ -40,6 +42,7 @@ function App() {
                      <Route path={Path.Logout} element={<Logout />} />
                   </Route>
                </Routes>
+               <ClearDiv />
                <Footer />
             </AuthProvider>
          </ErrorBoundary>
