@@ -25,3 +25,17 @@
    cursor: pointer;
    transform: scale(1.03);
 }
+
+.no-cars{
+   background-color: rgba(0, 0, 0, 0.7);
+   padding: 20px;
+   border-radius: 15px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   width: 600px;
+   text-align: center;
+   margin: auto;
+   margin-top: 200px;
+   margin-left: 680px;
+   color: white;
+   font-size: 64px;
+}
