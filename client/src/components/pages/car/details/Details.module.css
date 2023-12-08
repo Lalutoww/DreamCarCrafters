@@ -11,29 +11,46 @@
 }
 
 .detail-image {
-   width: auto; /* Adjust the percentage as needed to make the image smaller */
-   height: 320px; /* Maintain the aspect ratio */
+   width: auto;
+   height: 320px;
    max-width: 100%;
-   max-height: 100%; /* Limit the maximum height to maintain responsiveness */
+   max-height: 100%;
    border-radius: 8px;
    border: 5px solid black;
    box-sizing: border-box;
 }
 
-h2 {
+.carName {
    color: white;
 }
+.info {
+   text-align: left;
+   width:400px;
+}
 
-.info p {
-   color: whitesmoke;
-   margin-bottom: 2px;
+.info p,
+.info div,
+.details-description,
+strong {
+   text-align: left;
+}
+
+.info p{
+   color: white;
+   font-style: italic;
+   margin-bottom: 10px;
    word-wrap: break-word;
 }
 
 strong {
-   color: gray;
-   text-align: center;
+   color: #ffd700;
+   font-weight: bolder;
    margin-bottom: 10px;
+   font-size: 18px;
+}
+.details-description {
+   max-width: 600px;
+   margin: 0 auto;
 }
 
 .button-container {
@@ -43,12 +60,26 @@ strong {
 }
 
 .button {
-   padding: 10px 20px;
-   background-color: #333;
+   background-color: #111827;
+   border: 1px solid transparent;
+   border-radius: 12px;
+   color: #ffffff;
+   font-size: 18px;
+   margin-left: 30px;
+   margin-right: 30px;
+   width: 100px;
+   text-align: center;
+   height: 30px;
+   padding-top: 3px;
+}
+
+.button:hover {
+   background-color: #374151;
+}
+
+.already-liked {
+   margin-top: 15px;
    color: white;
-   border: none;
-   border-radius: 4px;
-   cursor: pointer;
 }
 
 .no-tune {
@@ -56,13 +87,11 @@ strong {
    font-weight: 200;
 }
 
-/* Your existing styles... */
-
 .tuning-header {
    position: relative;
    color: #ffffff;
-   font-size: 42px;
-   margin-bottom: 5px;
+   font-size: 32px;
+   margin-bottom: 10px;
 }
 
 .tuning-header::before,
@@ -70,17 +99,15 @@ strong {
    content: '';
    position: absolute;
    top: 50%;
-   width: 150px;
-   height: 2px; /* Adjust the height of the lines as needed */
-   background-color: white; /* Line color */
+   width: 100px;
+   height: 2px;
+   background-color: #ffffff;
 }
 
 .tuning-header::before {
-   left: -140px; 
+   left: -110px;
 }
 
 .tuning-header::after {
-   right: -150px; /* Adjust the distance of the line from the text as needed */
+   right: -110px;
 }
-
-/* Your existing styles... */

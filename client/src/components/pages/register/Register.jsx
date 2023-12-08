@@ -35,7 +35,7 @@ const Register = () => {
          </div>
          <section className={styles['register-container']}>
             <form className={styles['register-form']} onSubmit={onSubmit}>
-               <label htmlFor="email">Email</label>
+               <label htmlFor={RegisterFormKeys.Email}>Email</label>
                <input
                   type="email"
                   name={RegisterFormKeys.Email}
@@ -43,7 +43,7 @@ const Register = () => {
                   onChange={onChangeHandler}
                   placeholder="Email"
                />
-               <label htmlFor="username">Username</label>
+               <label htmlFor={RegisterFormKeys.Username}>Username</label>
                <input
                   type="username"
                   name={RegisterFormKeys.Username}
@@ -51,7 +51,7 @@ const Register = () => {
                   onChange={onChangeHandler}
                   placeholder="Usernames"
                />
-               <label htmlFor="password">Password</label>
+               <label htmlFor={RegisterFormKeys.Password}>Password</label>
                <input
                   type="password"
                   name={RegisterFormKeys.Password}
@@ -60,7 +60,7 @@ const Register = () => {
                   placeholder="Password"
                   autoComplete='off'
                />
-               <label htmlFor="rePassword">Repeat Password</label>
+               <label htmlFor={RegisterFormKeys.RePassword}>Repeat Password</label>
                <input
                   type="password"
                   name={RegisterFormKeys.RePassword}

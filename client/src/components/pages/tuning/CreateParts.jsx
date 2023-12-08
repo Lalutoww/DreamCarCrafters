@@ -47,7 +47,7 @@ const CreateParts = () => {
          </div>
          <section className={styles['tuning-container']}>
             <form className={styles['tuning-form']} onSubmit={onSubmit}>
-               <label htmlFor="partName">Part name</label>
+               <label htmlFor={PartFormKeys.Name}>Part name</label>
                <input
                   type="text"
                   name={PartFormKeys.Name}
@@ -55,7 +55,7 @@ const CreateParts = () => {
                   onChange={onChangeHandler}
                   placeholder="Name"
                />
-               <label htmlFor="partManufacturer">Manufacturer</label>
+               <label htmlFor={PartFormKeys.Manufacturer}>Manufacturer</label>
                <input
                   type="text"
                   name={PartFormKeys.Manufacturer}
@@ -63,7 +63,7 @@ const CreateParts = () => {
                   onChange={onChangeHandler}
                   placeholder="Manufacturer"
                />
-               <label htmlFor="imageUrl">Image Url</label>
+               <label htmlFor={PartFormKeys.ImageUrl}>Image Url</label>
                <input
                   type="text"
                   name={PartFormKeys.ImageUrl}
@@ -71,7 +71,7 @@ const CreateParts = () => {
                   onChange={onChangeHandler}
                   placeholder="Image Url"
                />
-               <label htmlFor="description">Description</label>
+               <label htmlFor={PartFormKeys.Description}>Description</label>
                <textarea
                   type="text"
                   name={PartFormKeys.Description}

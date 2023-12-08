@@ -74,79 +74,90 @@ const Details = () => {
             <h1>Details Page</h1>
          </div>
          <div className={styles['container']}>
-            <img className={styles['detail-image']}src={car.imageUrl} alt="Car Image" />
-            <h2>{car.manufacturer} {car.model} | Likes: {likes.length}</h2>
+            <img
+               className={styles['detail-image']}
+               src={car.imageUrl}
+               alt="Car Image"
+            />
+            <h2 className={styles['carName']}>
+               {car.manufacturer} {car.model} | Likes: {likes.length}
+            </h2>
             <div className={styles['info']}>
-            <p>
-               <strong>Owner:</strong> {car.ownerName}
-            </p>
-            <p>
-               <strong>Year:</strong> {car.year}
-            </p>
-            <p>
-               <strong>Color:</strong> {car.color}
-            </p>
-            <p>
-               <strong>Engine:</strong> {car.engine}
-            </p>
-            <p>
-               <strong>Horsepower:</strong> {car.horsepower} HP
-            </p>
-            <p>
-               <strong>Description:</strong> {car.description}
-            </p>
-         </div>
-            <div className={styles["button-container"]}>
-            {isAuthenticated && !hasLiked && userId !== car._ownerId && (
+               <p>
+                  <strong>Owner:</strong> {car.ownerName}
+               </p>
+               <p>
+                  <strong>Year:</strong> {car.year}
+               </p>
+               <p>
+                  <strong>Color:</strong> {car.color}
+               </p>
+               <p>
+                  <strong>Engine:</strong> {car.engine}
+               </p>
+               <p>
+                  <strong>Horsepower:</strong> {car.horsepower} HP
+               </p>
+               <div className={styles['details-description']}>
+                  <p>
+                     <strong>Description:</strong>
+                  </p>
+                  <p>{car.description}</p>
+               </div>
+            </div>
+            <div className={styles['button-container']}>
+               {isAuthenticated && !hasLiked && userId !== car._ownerId && (
+                  <button
+                     className={styles['button']}
+                     onClick={likeButtonClickHandler}
+                  >
+                     Like
+                  </button>
+               )}
+
+               {isAuthenticated && hasLiked && userId !== car._ownerId && (
+                  <p className={styles['already-liked']}>
+                     Thank you for your like!
+                  </p>
+               )}
+               {isAuthenticated && userId === car._ownerId && (
+                  <>
+                     <Link
+                        to={`/parts/create/${carId}`}
+                        className={styles['button']}
+                     >
+                        Add parts
+                     </Link>
+                     <Link
+                        to={`/cars/edit/${carId}`}
+                        className={styles['button']}
+                     >
+                        Edit
+                     </Link>
                      <button
                         className={styles['button']}
-                        onClick={likeButtonClickHandler}
+                        onClick={deleteButtonClickHandler}
                      >
-                        Like
+                        Delete
                      </button>
-                  )}
-
-                  {isAuthenticated && hasLiked && userId !== car._ownerId && (
-                     <p className={styles['already-liked']}>Thank you for your like!</p>
-                  )}
-               {isAuthenticated && userId === car._ownerId && (
-                     <>
-                        <Link
-                           to={`/parts/create/${carId}`}
-                           className={styles['button']}
-                        >
-                           Add parts
-                        </Link>
-                        <Link
-                           to={`/cars/edit/${carId}`}
-                           className={styles['button']}
-                        >
-                           Edit
-                        </Link>
-                        <button
-                           className={styles['button']}
-                           onClick={deleteButtonClickHandler}
-                        >
-                           Delete
-                        </button>
-                     </>
-                  )}
+                  </>
+               )}
             </div>
             <h3 className={styles['tuning-header']}>Tuning</h3>
             {parts.length > 0 && (
-                  <Container>
-                     <Row lg={3}>
-                        {parts.map((part) => (
-                           <PartItem key={part._id} {...part} />
-                        ))}
-                     </Row>
-                  </Container>
-               )}
-               {parts.length <= 0 && (
-                  <h3 className={styles['no-tune']}>
-                     This car has no tuning yet!
-                  </h3>
-               )}
+               <Container>
+                  <Row lg={3}>
+                     {parts.map((part) => (
+                        <PartItem key={part._id} {...part} />
+                     ))}
+                  </Row>
+               </Container>
+            )}
+            {parts.length <= 0 && (
+               <h3 className={styles['no-tune']}>
+                  This car has no tuning yet!
+               </h3>
+            )}
          </div>
       </>
    );

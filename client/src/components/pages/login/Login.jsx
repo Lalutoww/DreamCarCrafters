@@ -28,7 +28,7 @@ const Login = () => {
          </div>
          <section className={styles['login-container']}>
             <form className={styles['login-form']} onSubmit={onSubmit}>
-               <label htmlFor="email">Email</label>
+               <label htmlFor={LoginFormKeys.Email}>Email</label>
                <input
                   type="email"
                   name={LoginFormKeys.Email}
@@ -36,7 +36,7 @@ const Login = () => {
                   onChange={onChangeHandler}
                   placeholder="Email"
                />
-               <label htmlFor="password">Password</label>
+               <label htmlFor={LoginFormKeys.Password}>Password</label>
                <input
                   type="password"
                   name={LoginFormKeys.Password}
