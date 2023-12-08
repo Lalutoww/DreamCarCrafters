@@ -28,7 +28,6 @@ const CreateParts = () => {
             await partService.create(carId, values);
             navigate(`/cars/details/${carId}`);
          } catch (error) {
-            console.log(error);
             scrollToTopAndShowError(error);
          }
       },
@@ -50,14 +49,17 @@ const CreateParts = () => {
                <label htmlFor={PartFormKeys.Name}>Part name</label>
                <input
                   type="text"
+                  id={PartFormKeys.Name}
                   name={PartFormKeys.Name}
                   value={formValues[PartFormKeys.Name]}
                   onChange={onChangeHandler}
                   placeholder="Name"
+                  autoComplete='on'
                />
                <label htmlFor={PartFormKeys.Manufacturer}>Manufacturer</label>
                <input
                   type="text"
+                  id={PartFormKeys.Manufacturer}
                   name={PartFormKeys.Manufacturer}
                   value={formValues[PartFormKeys.Manufacturer]}
                   onChange={onChangeHandler}
@@ -66,6 +68,7 @@ const CreateParts = () => {
                <label htmlFor={PartFormKeys.ImageUrl}>Image Url</label>
                <input
                   type="text"
+                  id={PartFormKeys.ImageUrl}
                   name={PartFormKeys.ImageUrl}
                   value={formValues[PartFormKeys.ImageUrl]}
                   onChange={onChangeHandler}
@@ -74,6 +77,7 @@ const CreateParts = () => {
                <label htmlFor={PartFormKeys.Description}>Description</label>
                <textarea
                   type="text"
+                  id={PartFormKeys.Description}
                   name={PartFormKeys.Description}
                   value={formValues[PartFormKeys.Description]}
                   onChange={onChangeHandler}

@@ -38,22 +38,27 @@ const Register = () => {
                <label htmlFor={RegisterFormKeys.Email}>Email</label>
                <input
                   type="email"
+                  id={RegisterFormKeys.Email}
                   name={RegisterFormKeys.Email}
                   value={formValues[RegisterFormKeys.Email]}
                   onChange={onChangeHandler}
                   placeholder="Email"
+                  autoComplete='on'
                />
                <label htmlFor={RegisterFormKeys.Username}>Username</label>
                <input
                   type="username"
+                  id={RegisterFormKeys.Username}
                   name={RegisterFormKeys.Username}
                   value={formValues[RegisterFormKeys.Username]}
                   onChange={onChangeHandler}
-                  placeholder="Usernames"
+                  placeholder="Username"
+                  autoComplete='on'
                />
                <label htmlFor={RegisterFormKeys.Password}>Password</label>
                <input
                   type="password"
+                  id={RegisterFormKeys.Password}
                   name={RegisterFormKeys.Password}
                   value={formValues[RegisterFormKeys.Password]}
                   onChange={onChangeHandler}
@@ -63,6 +68,7 @@ const Register = () => {
                <label htmlFor={RegisterFormKeys.RePassword}>Repeat Password</label>
                <input
                   type="password"
+                  id={RegisterFormKeys.RePassword}
                   name={RegisterFormKeys.RePassword}
                   value={formValues[RegisterFormKeys.RePassword]}
                   onChange={onChangeHandler}

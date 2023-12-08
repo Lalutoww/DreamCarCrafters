@@ -31,14 +31,17 @@ const Login = () => {
                <label htmlFor={LoginFormKeys.Email}>Email</label>
                <input
                   type="email"
+                  id={LoginFormKeys.Email}
                   name={LoginFormKeys.Email}
                   value={formValues[LoginFormKeys.Email]}
                   onChange={onChangeHandler}
                   placeholder="Email"
+                  autoComplete='on'
                />
                <label htmlFor={LoginFormKeys.Password}>Password</label>
                <input
                   type="password"
+                  id={LoginFormKeys.Password}
                   name={LoginFormKeys.Password}
                   value={formValues[LoginFormKeys.Password]}
                   onChange={onChangeHandler}

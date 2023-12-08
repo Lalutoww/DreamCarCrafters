@@ -78,6 +78,7 @@ export default function CarEdit() {
                <label htmlFor={EditCarFormKeys.Manufacturer}>Manufacturer</label>
                <input
                   type="text"
+                  id={EditCarFormKeys.Manufacturer}
                   name={EditCarFormKeys.Manufacturer}
                   value={car[EditCarFormKeys.Manufacturer]}
                   onChange={onChangeHandler}
@@ -86,6 +87,7 @@ export default function CarEdit() {
                <label htmlFor={EditCarFormKeys.Model}>Model</label>
                <input
                   type="text"
+                  id={EditCarFormKeys.Model}
                   name={EditCarFormKeys.Model}
                   value={car[EditCarFormKeys.Model]}
                   onChange={onChangeHandler}
@@ -94,6 +96,7 @@ export default function CarEdit() {
                <label htmlFor={EditCarFormKeys.Year}>Year of production</label>
                <input
                   type="number"
+                  id={EditCarFormKeys.Year}
                   name={EditCarFormKeys.Year}
                   value={car[EditCarFormKeys.Year]}
                   onChange={onChangeHandler}
@@ -102,6 +105,7 @@ export default function CarEdit() {
                <label htmlFor={EditCarFormKeys.Color}>Color</label>
                <input
                   type="text"
+                  id={EditCarFormKeys.Color}
                   name={EditCarFormKeys.Color}
                   value={car[EditCarFormKeys.Color]}
                   onChange={onChangeHandler}
@@ -110,6 +114,7 @@ export default function CarEdit() {
                <label htmlFor={EditCarFormKeys.Engine}>Engine</label>
                <input
                   type="text"
+                  id={EditCarFormKeys.Engine}
                   name={EditCarFormKeys.Engine}
                   value={car[EditCarFormKeys.Engine]}
                   onChange={onChangeHandler}
@@ -118,6 +123,7 @@ export default function CarEdit() {
                <label htmlFor={EditCarFormKeys.Horsepower}>Horsepower</label>
                <input
                   type="number"
+                  id={EditCarFormKeys.Horsepower}
                   name={EditCarFormKeys.Horsepower}
                   value={car[EditCarFormKeys.Horsepower]}
                   onChange={onChangeHandler}
@@ -126,14 +132,16 @@ export default function CarEdit() {
                <label htmlFor={EditCarFormKeys.ImageUrl}>Image Url</label>
                <input
                   type="text"
+                  id={EditCarFormKeys.ImageUrl}
                   name={EditCarFormKeys.ImageUrl}
                   value={car[EditCarFormKeys.ImageUrl]}
                   onChange={onChangeHandler}
                   placeholder="ImageUrl"
                />
-               <label htmlFor="description">Description</label>
+               <label htmlFor={EditCarFormKeys.Description}>Description</label>
                <textarea
                   type="text"
+                  id={EditCarFormKeys.Description}
                   name={EditCarFormKeys.Description}
                   value={car[EditCarFormKeys.Description]}
                   onChange={onChangeHandler}

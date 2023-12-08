@@ -61,6 +61,7 @@ const ListCar = () => {
                <label htmlFor={ListCarFormKeys.Manufacturer}>Manufacturer</label>
                <input
                   type="text"
+                  id={ListCarFormKeys.Manufacturer}
                   name={ListCarFormKeys.Manufacturer}
                   value={formValues[ListCarFormKeys.Manufacturer]}
                   onChange={onChangeHandler}
@@ -69,6 +70,7 @@ const ListCar = () => {
                <label htmlFor={ListCarFormKeys.Model}>Model</label>
                <input
                   type="text"
+                  id={ListCarFormKeys.Model}
                   name={ListCarFormKeys.Model}
                   value={formValues[ListCarFormKeys.Model]}
                   onChange={onChangeHandler}
@@ -77,6 +79,7 @@ const ListCar = () => {
                <label htmlFor={ListCarFormKeys.Year}>Year of production</label>
                <input
                   type="number"
+                  id={ListCarFormKeys.Year}
                   name={ListCarFormKeys.Year}
                   value={formValues[ListCarFormKeys.Year]}
                   onChange={onChangeHandler}
@@ -85,6 +88,7 @@ const ListCar = () => {
                <label htmlFor={ListCarFormKeys.Color}>Color</label>
                <input
                   type="text"
+                  id={ListCarFormKeys.Color}
                   name={ListCarFormKeys.Color}
                   value={formValues[ListCarFormKeys.Color]}
                   onChange={onChangeHandler}
@@ -93,6 +97,7 @@ const ListCar = () => {
                <label htmlFor={ListCarFormKeys.Engine}>Engine</label>
                <input
                   type="text"
+                  id={ListCarFormKeys.Engine}
                   name={ListCarFormKeys.Engine}
                   value={formValues[ListCarFormKeys.Engine]}
                   onChange={onChangeHandler}
@@ -101,6 +106,7 @@ const ListCar = () => {
                <label htmlFor={ListCarFormKeys.Horsepower}>Horsepower</label>
                <input
                   type="number"
+                  id={ListCarFormKeys.Horsepower}
                   name={ListCarFormKeys.Horsepower}
                   value={formValues[ListCarFormKeys.Horsepower]}
                   onChange={onChangeHandler}
@@ -109,14 +115,16 @@ const ListCar = () => {
                <label htmlFor={ListCarFormKeys.ImageUrl}>Image Url</label>
                <input
                   type="text"
+                  id={ListCarFormKeys.ImageUrl}
                   name={ListCarFormKeys.ImageUrl}
                   value={formValues[ListCarFormKeys.ImageUrl]}
                   onChange={onChangeHandler}
                   placeholder="ImageUrl"
                />
-               <label htmlFor="description">Description</label>
+               <label htmlFor={ListCarFormKeys.Description}>Description</label>
                <textarea
                   type="text"
+                  id={ListCarFormKeys.Description}
                   name={ListCarFormKeys.Description}
                   value={formValues[ListCarFormKeys.Description]}
                   onChange={onChangeHandler}
