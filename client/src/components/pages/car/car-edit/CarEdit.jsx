@@ -7,7 +7,7 @@ import { listEditCarErrorHandler } from '../../../../utils/errorHandler.js';
 import AuthContext from '../../../../contexts/authContext.jsx';
 import ErrorAlert from '../../../errorAlert/ErrorAlert.jsx';
 
-const ListCarFormKeys = {
+const EditCarFormKeys = {
    Manufacturer: 'manufacturer',
    Model: 'model',
    Year: 'year',
@@ -23,14 +23,14 @@ export default function CarEdit() {
    const navigate = useNavigate();
    const { show, closeHandler, scrollToTopAndShowError } = useContext(AuthContext);
    const [car, setCar] = useState({
-      [ListCarFormKeys.Manufacturer]: '',
-      [ListCarFormKeys.Model]: '',
-      [ListCarFormKeys.Year]: '',
-      [ListCarFormKeys.Color]: '',
-      [ListCarFormKeys.Engine]: '',
-      [ListCarFormKeys.Horsepower]: '',
-      [ListCarFormKeys.ImageUrl]: '',
-      [ListCarFormKeys.Description]: '',
+      [EditCarFormKeys.Manufacturer]: '',
+      [EditCarFormKeys.Model]: '',
+      [EditCarFormKeys.Year]: '',
+      [EditCarFormKeys.Color]: '',
+      [EditCarFormKeys.Engine]: '',
+      [EditCarFormKeys.Horsepower]: '',
+      [EditCarFormKeys.ImageUrl]: '',
+      [EditCarFormKeys.Description]: '',
    });
 
    useEffect(() => {
@@ -54,7 +54,7 @@ export default function CarEdit() {
          });
          await carService.edit(carId, car);
 
-         navigate('/cars/browse');
+         navigate(`/cars/details/${carId}`);
       } catch (error) {
          scrollToTopAndShowError(error)
       }
@@ -73,92 +73,73 @@ export default function CarEdit() {
          <div className="header">
             <h1>Edit Car</h1>
          </div>
-         <section className={styles['create-page']} id="createPage">
-            <form
-               onSubmit={editCarSubmitHandler}
-               className={styles['create-form']}
-               id="createForm"
-            >
-               <label htmlFor="manufacturer">Manufacturer:</label>
+         <section className={styles['edit-container']}>
+            <form className={styles['edit-form']} onSubmit={editCarSubmitHandler}>
+               <label htmlFor={EditCarFormKeys.Manufacturer}>Manufacturer</label>
                <input
                   type="text"
-                  id="manufacturer"
-                  name={ListCarFormKeys.Manufacturer}
-                  value={car[ListCarFormKeys.Manufacturer]}
+                  name={EditCarFormKeys.Manufacturer}
+                  value={car[EditCarFormKeys.Manufacturer]}
                   onChange={onChangeHandler}
-                  placeholder="Peugeot"
+                  placeholder="Manufacturer"
                />
-
-               <label htmlFor="model">Model:</label>
+               <label htmlFor={EditCarFormKeys.Model}>Model</label>
                <input
                   type="text"
-                  id="model"
-                  name={ListCarFormKeys.Model}
-                  value={car[ListCarFormKeys.Model]}
+                  name={EditCarFormKeys.Model}
+                  value={car[EditCarFormKeys.Model]}
                   onChange={onChangeHandler}
-                  placeholder="406"
+                  placeholder="Model"
                />
-
-               <label htmlFor="year">Year of Production:</label>
+               <label htmlFor={EditCarFormKeys.Year}>Year of production</label>
                <input
                   type="number"
-                  id="year"
-                  name={ListCarFormKeys.Year}
-                  value={car[ListCarFormKeys.Year]}
+                  name={EditCarFormKeys.Year}
+                  value={car[EditCarFormKeys.Year]}
                   onChange={onChangeHandler}
-                  placeholder="2001"
+                  placeholder="Year of production"
                />
-
-               <label htmlFor="color">Color:</label>
+               <label htmlFor={EditCarFormKeys.Color}>Color</label>
                <input
                   type="text"
-                  id="color"
-                  name={ListCarFormKeys.Color}
-                  value={car[ListCarFormKeys.Color]}
+                  name={EditCarFormKeys.Color}
+                  value={car[EditCarFormKeys.Color]}
                   onChange={onChangeHandler}
-                  placeholder="Silver"
+                  placeholder="Color"
                />
-
-               <label htmlFor="engine">Engine:</label>
+               <label htmlFor={EditCarFormKeys.Engine}>Engine</label>
                <input
                   type="text"
-                  id="engine"
-                  name={ListCarFormKeys.Engine}
-                  value={car[ListCarFormKeys.Engine]}
+                  name={EditCarFormKeys.Engine}
+                  value={car[EditCarFormKeys.Engine]}
                   onChange={onChangeHandler}
-                  placeholder="2.0 HDI"
+                  placeholder="Engine"
                />
-
-               <label htmlFor="horsepower">Horsepower:</label>
+               <label htmlFor={EditCarFormKeys.Horsepower}>Horsepower</label>
+               <input
+                  type="number"
+                  name={EditCarFormKeys.Horsepower}
+                  value={car[EditCarFormKeys.Horsepower]}
+                  onChange={onChangeHandler}
+                  placeholder="Horsepower"
+               />
+               <label htmlFor={EditCarFormKeys.ImageUrl}>Image Url</label>
                <input
                   type="text"
-                  id="horsepower"
-                  name={ListCarFormKeys.Horsepower}
-                  value={car[ListCarFormKeys.Horsepower]}
+                  name={EditCarFormKeys.ImageUrl}
+                  value={car[EditCarFormKeys.ImageUrl]}
                   onChange={onChangeHandler}
-                  placeholder="110"
+                  placeholder="ImageUrl"
                />
-               <label htmlFor="imageUrl">Image URL:</label>
-               <input
+               <label htmlFor="description">Description</label>
+               <textarea
                   type="text"
-                  id="imageUrl"
-                  name={ListCarFormKeys.ImageUrl}
-                  value={car[ListCarFormKeys.ImageUrl]}
+                  name={EditCarFormKeys.Description}
+                  value={car[EditCarFormKeys.Description]}
                   onChange={onChangeHandler}
-                  placeholder="Image Url..."
+                  placeholder="Description"
                />
-
-               <label htmlFor="description">Description:</label>
-               <input
-                  type="text"
-                  id="description"
-                  name={ListCarFormKeys.Description}
-                  value={car[ListCarFormKeys.Description]}
-                  onChange={onChangeHandler}
-                  placeholder="Description..."
-               />
-
-               <input type="submit" className="edit" />
+               <input type="submit" />
             </form>
          </section>
       </>

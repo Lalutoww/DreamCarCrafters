@@ -43,44 +43,41 @@ const CreateParts = () => {
       <>
       {show && <ErrorAlert closeHandler={closeHandler}/>}
          <div className='header'>
-            <h1>Add Part</h1>
+            <h1>Add Tuning</h1>
          </div>
-         <section className={styles['create-page']} id="createPartsPage">
-            <form className={styles['create-form']} onSubmit={onSubmit}>
-               <label htmlFor="name">Part Name</label>
+         <section className={styles['tuning-container']}>
+            <form className={styles['tuning-form']} onSubmit={onSubmit}>
+               <label htmlFor="partName">Part name</label>
                <input
                   type="text"
-                  id="name"
                   name={PartFormKeys.Name}
                   value={formValues[PartFormKeys.Name]}
                   onChange={onChangeHandler}
-                  placeholder="DRIVEGUARD PLUS"
+                  placeholder="Name"
                />
-               <label htmlFor="manufacturer">Manufacturer</label>
+               <label htmlFor="partManufacturer">Manufacturer</label>
                <input
                   type="text"
-                  id="manufacturer"
                   name={PartFormKeys.Manufacturer}
                   value={formValues[PartFormKeys.Manufacturer]}
                   onChange={onChangeHandler}
-                  placeholder="Bridgestone"
+                  placeholder="Manufacturer"
                />
-               <label htmlFor="description">Description</label>
+               <label htmlFor="imageUrl">Image Url</label>
                <input
                   type="text"
-                  id="description"
-                  name={PartFormKeys.Description}
-                  value={formValues[PartFormKeys.Description]}
-                  onChange={onChangeHandler}
-                  placeholder="Touring tire comfort meets all-season confidence in the DriveGuard Plus."
-               ></input>
-               <label htmlFor="imageUrl">ImageUrl</label>
-               <input
-                  type="text"
-                  id="imageUrl"
                   name={PartFormKeys.ImageUrl}
                   value={formValues[PartFormKeys.ImageUrl]}
                   onChange={onChangeHandler}
+                  placeholder="Image Url"
+               />
+               <label htmlFor="description">Description</label>
+               <textarea
+                  type="text"
+                  name={PartFormKeys.Description}
+                  value={formValues[PartFormKeys.Description]}
+                  onChange={onChangeHandler}
+                  placeholder="Description"
                />
                <input type="submit" />
             </form>

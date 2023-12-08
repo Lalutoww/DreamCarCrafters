@@ -15,7 +15,8 @@ const RegisterFormKeys = {
 };
 
 const Register = () => {
-   const { registerSubmitHandler, show, closeHandler } = useContext(AuthContext);
+   const { registerSubmitHandler, show, closeHandler } =
+      useContext(AuthContext);
    const { formValues, onChangeHandler, onSubmit } = useForm(
       registerSubmitHandler,
       {
@@ -28,61 +29,47 @@ const Register = () => {
 
    return (
       <>
-      {show && (<ErrorAlert closeHandler={closeHandler}/>)}
+         {show && <ErrorAlert closeHandler={closeHandler} />}
          <div className="header">
             <h1>Register</h1>
          </div>
-         <section className={styles['register-page']} id="registerPage">
-            <form
-               onSubmit={onSubmit}
-               className={styles['register-form']}
-               id="registerForm"
-               action="#"
-               method=""
-            >
-               <label htmlFor="email">Email:</label>
+         <section className={styles['register-container']}>
+            <form className={styles['register-form']} onSubmit={onSubmit}>
+               <label htmlFor="email">Email</label>
                <input
-                  type="text"
-                  id="email"
+                  type="email"
                   name={RegisterFormKeys.Email}
                   value={formValues[RegisterFormKeys.Email]}
                   onChange={onChangeHandler}
                   placeholder="Email"
                />
-
-               <label htmlFor="username">Username:</label>
+               <label htmlFor="username">Username</label>
                <input
-                  type="text"
-                  id="username"
+                  type="username"
                   name={RegisterFormKeys.Username}
                   value={formValues[RegisterFormKeys.Username]}
                   onChange={onChangeHandler}
-                  placeholder="Username"
+                  placeholder="Usernames"
                />
-
-               <label htmlFor="password">Password:</label>
+               <label htmlFor="password">Password</label>
                <input
                   type="password"
-                  id="password"
-                  autoComplete="off"
                   name={RegisterFormKeys.Password}
                   value={formValues[RegisterFormKeys.Password]}
                   onChange={onChangeHandler}
                   placeholder="Password"
+                  autoComplete='off'
                />
-
-               <label htmlFor="rePassword">Repeat Password:</label>
+               <label htmlFor="rePassword">Repeat Password</label>
                <input
                   type="password"
-                  id="rePassword"
-                  autoComplete="off"
                   name={RegisterFormKeys.RePassword}
                   value={formValues[RegisterFormKeys.RePassword]}
                   onChange={onChangeHandler}
                   placeholder="Repeat Password"
+                  autoComplete='off'
                />
-
-               <input type="submit" className={styles.registerForm} />
+               <input type="submit" />
             </form>
          </section>
       </>

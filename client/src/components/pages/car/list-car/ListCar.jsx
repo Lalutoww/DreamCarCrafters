@@ -56,92 +56,73 @@ const ListCar = () => {
          <div className="header">
             <h1>List Car</h1>
          </div>
-         <section className={styles['create-page']} id="createPage">
-            <form
-               onSubmit={onSubmit}
-               className={styles['create-form']}
-               id="createForm"
-            >
-               <label htmlFor="manufacturer">Manufacturer:</label>
+         <section className={styles['list-container']}>
+            <form className={styles['list-form']} onSubmit={onSubmit}>
+               <label htmlFor={ListCarFormKeys.Manufacturer}>Manufacturer</label>
                <input
                   type="text"
-                  id="manufacturer"
                   name={ListCarFormKeys.Manufacturer}
                   value={formValues[ListCarFormKeys.Manufacturer]}
                   onChange={onChangeHandler}
-                  placeholder="Peugeot"
+                  placeholder="Manufacturer"
                />
-
-               <label htmlFor="model">Model:</label>
+               <label htmlFor={ListCarFormKeys.Model}>Model</label>
                <input
                   type="text"
-                  id="model"
                   name={ListCarFormKeys.Model}
                   value={formValues[ListCarFormKeys.Model]}
                   onChange={onChangeHandler}
-                  placeholder="406"
+                  placeholder="Model"
                />
-
-               <label htmlFor="year">Year of Production:</label>
+               <label htmlFor={ListCarFormKeys.Year}>Year of production</label>
                <input
                   type="number"
-                  id="year"
                   name={ListCarFormKeys.Year}
                   value={formValues[ListCarFormKeys.Year]}
                   onChange={onChangeHandler}
-                  placeholder="2001"
+                  placeholder="Year of production"
                />
-
-               <label htmlFor="color">Color:</label>
+               <label htmlFor={ListCarFormKeys.Color}>Color</label>
                <input
                   type="text"
-                  id="color"
                   name={ListCarFormKeys.Color}
                   value={formValues[ListCarFormKeys.Color]}
                   onChange={onChangeHandler}
-                  placeholder="Silver"
+                  placeholder="Color"
                />
-
-               <label htmlFor="engine">Engine:</label>
+               <label htmlFor={ListCarFormKeys.Engine}>Engine</label>
                <input
                   type="text"
-                  id="engine"
                   name={ListCarFormKeys.Engine}
                   value={formValues[ListCarFormKeys.Engine]}
                   onChange={onChangeHandler}
-                  placeholder="2.0 HDI"
+                  placeholder="Engine"
                />
-
-               <label htmlFor="horsepower">Horsepower:</label>
+               <label htmlFor={ListCarFormKeys.Horsepower}>Horsepower</label>
                <input
                   type="number"
-                  id="horsepower"
                   name={ListCarFormKeys.Horsepower}
                   value={formValues[ListCarFormKeys.Horsepower]}
                   onChange={onChangeHandler}
-                  placeholder="110"
+                  placeholder="Horsepower"
                />
-               <label htmlFor="imageUrl">Image URL:</label>
+               <label htmlFor={ListCarFormKeys.ImageUrl}>Image Url</label>
                <input
                   type="text"
-                  id="imageUrl"
                   name={ListCarFormKeys.ImageUrl}
                   value={formValues[ListCarFormKeys.ImageUrl]}
                   onChange={onChangeHandler}
-                  placeholder="Image Url..."
+                  placeholder="ImageUrl"
                />
-
-               <label htmlFor="description">Description:</label>
-               <input
+               <label htmlFor="description">Description</label>
+               <textarea
                   type="text"
-                  id="description"
                   name={ListCarFormKeys.Description}
                   value={formValues[ListCarFormKeys.Description]}
                   onChange={onChangeHandler}
-                  placeholder="Description..."
+                  placeholder="Description"
                />
-
-               <input type="submit" className="create" />
+               <input type="submit" />
             </form>
          </section>
       </>

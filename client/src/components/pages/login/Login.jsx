@@ -4,7 +4,7 @@ import { useForm } from '../../../hooks/useForm.js';
 import AuthContext from '../../../contexts/authContext.jsx';
 import { useContext } from 'react';
 
-import ErrorAlert from '../../errorAlert/ErrorAlert.jsx'
+import ErrorAlert from '../../errorAlert/ErrorAlert.jsx';
 
 const LoginFormKeys = {
    Email: 'email',
@@ -22,36 +22,28 @@ const Login = () => {
    );
    return (
       <>
-      {show && (<ErrorAlert closeHandler={closeHandler}/>)}
-         <div className='header'>
+         {show && <ErrorAlert closeHandler={closeHandler} />}
+         <div className="header">
             <h1>Login</h1>
          </div>
-         <section className={styles['login-page']} id="loginPage">
-            <form
-               onSubmit={onSubmit}
-               className={styles['login-form']}
-               id="loginForm"
-               method="POST"
-            >
-               <label htmlFor="email">Email:</label>
+         <section className={styles['login-container']}>
+            <form className={styles['login-form']} onSubmit={onSubmit}>
+               <label htmlFor="email">Email</label>
                <input
-                  type="text"
-                  id="email"
+                  type="email"
                   name={LoginFormKeys.Email}
                   value={formValues[LoginFormKeys.Email]}
                   onChange={onChangeHandler}
                   placeholder="Email"
                />
-
-               <label htmlFor="password">Password:</label>
+               <label htmlFor="password">Password</label>
                <input
                   type="password"
-                  id="password"
-                  autoComplete="off"
                   name={LoginFormKeys.Password}
                   value={formValues[LoginFormKeys.Password]}
                   onChange={onChangeHandler}
                   placeholder="Password"
+                  autoComplete='off'
                />
 
                <input type="submit" />

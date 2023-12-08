@@ -7,8 +7,8 @@ function PartItem({ name, manufacturer, description, imageUrl }) {
                <Card className="bg-dark text-white">
                   <Card.Img variant="top" src={imageUrl} />
                   <Card.Body>
-                     <Card.Title>{name}</Card.Title>
-                     <Card.Title>{manufacturer}</Card.Title>
+                     <Card.Title style={{textAlign: 'center'}}>{manufacturer}</Card.Title>
+                     <Card.Text style={{fontSize: '12px', fontStyle: 'italic', textAlign: 'center'}}>{name}</Card.Text>
                      <Card.Text>{description}</Card.Text>
                   </Card.Body>
                </Card>
