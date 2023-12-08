@@ -7,8 +7,8 @@ const Home = () => {
    return (
          <div className={styles['hero-text']}>
             <h1 className={styles['header']}>Dream Car Crafters</h1>
-            <p className={styles['lower-text']}><span>List and Upgrade Your Dream Car</span></p>
-            <button className={styles['button']} onClick={()=> navigate(Path.BrowseCars)} role="button">Browse Cars</button>
+            <p className={styles['lower-text']}><span>Share and Upgrade Your Cars</span></p>
+            <button className={styles['button']} onClick={()=> navigate(Path.BrowseCars)} role="button">Car Catalogue</button>
             <button className={styles['button']} onClick={()=> navigate(Path.MyGarage)} role="button">My Garage</button>
          </div>
    );

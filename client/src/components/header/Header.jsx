@@ -15,7 +15,7 @@ const Header = () => {
 		<ul className={styles['menu-4']}>
             {/* Everyone can see: */}
 		  <li><Link to={Path.Home} data-hover="Home">Home</Link></li>
-		  <li><Link to={Path.BrowseCars} data-hover="Browse Cars">Browse Cars</Link></li>
+		  <li><Link to={Path.BrowseCars} data-hover="Car Catalogue">Car Catalogue</Link></li>
             {/* Guest Only: */}
             {!isAuthenticated && <><li className='guest'><Link to={Path.Login} data-hover="Login">Login</Link></li>
           <li className='guest'><Link to={Path.Register} data-hover="Register">Register</Link></li></>}
