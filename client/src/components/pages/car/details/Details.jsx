@@ -126,7 +126,7 @@ const Details = () => {
                         to={`/parts/create/${carId}`}
                         className={styles['button']}
                      >
-                        Add parts
+                        Add Tuning
                      </Link>
                      <Link
                         to={`/cars/edit/${carId}`}
