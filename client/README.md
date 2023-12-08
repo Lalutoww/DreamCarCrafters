@@ -1,8 +1,36 @@
-# React + Vite
+<h1 align="center">Welcome to Tuned Treasures 👋</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
+  <a href="#" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  </a>
+</p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> TunedTreasures is your digital garage for automotive enthusiasts! Share the pride of your vehicle by joining our community where members can showcase their rides, share customization details, and connect with fellow car enthusiasts. Whether you've added some high-performance tuning, personalized aesthetics, or unique modifications, TunedTreasures is the platform to flaunt your automotive masterpiece. Dive into a world of passion where you can explore and appreciate the creativity of others, give likes to the most impressive rides, and gather inspiration for your next tuning project. Join TunedTreasures today and celebrate the artistry of automotive customization with like-minded individuals!
 
-Currently, two official plugins are available:
+### ✨ [Demo](https://tunedtreasures.web.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Install
+
+```sh
+npm install
+```
+
+## Usage
+
+```sh
+npm run dev
+```
+
+## Author
+
+👤 **Martin Lalutov**
+
+* Github: [@Lalutoww](https://github.com/Lalutoww)
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
