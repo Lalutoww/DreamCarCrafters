@@ -1487,9 +1487,40 @@
             _createdOn: 1701685162086,
             _id: '83c4426a-0a9c-4811-aef5-9f85eaef46ff',
          },
+         '59caa8a4-f0ca-436f-a563-7d68320620cf': {
+            _ownerId: '35c62d76-8152-4626-8712-eeb96381bea8',
+            manufacturer: 'BMW',
+            model: 'X7',
+            year: '2023',
+            color: 'Black',
+            engine: '6.0i',
+            horsepower: '530',
+            imageUrl:
+               'https://cdn.bmwblog.com/wp-content/uploads/2022/08/bmw-x7-m60i-black-sapphire-07.jpg',
+            ownerName: 'Peter',
+            description: 'Featuring an M-built V8 engine with 530 horsepower',
+            _createdOn: 1702045562064,
+            _id: '59caa8a4-f0ca-436f-a563-7d68320620cf',
+         },
+         '4a87787f-a602-4396-ad1b-0b9a08c58775': {
+            _ownerId: '847ec027-f659-4086-8032-5173e2f9c93a',
+            manufacturer: 'Passat',
+            model: 'B6',
+            year: '2008',
+            color: 'Gray',
+            engine: '2.0 TDI',
+            horsepower: '140',
+            imageUrl:
+               'https://www.auto-data.net/images/f92/Volkswagen-Passat-Variant-B6.jpg',
+            ownerName: 'George',
+            description:
+               "The 2008 Passat B6 Combi features a spacious and practical estate design, providing ample cargo space. Equipped with Volkswagen's DSG, a dual-clutch automatic transmission system, it offers smooth and efficient gear changes. The 2.0 TDI engine signifies a 2.0-liter turbocharged diesel engine, known for a balance between performance and fuel efficiency. ",
+            _createdOn: 1702047291202,
+            _id: '4a87787f-a602-4396-ad1b-0b9a08c58775',
+         },
       },
       parts: {
-         '35c62d76-8152-4626-8712-eeb96381bea8': {
+         '7e9b1e49-7fd9-4f7e-8c8f-30e3d6e94ec4': {
             _ownerId: '35c62d76-8152-4626-8712-eeb96381bea8',
             carId: '83c4426a-0a9c-4811-aef5-9f85eaef46ff',
             name: 'DRIVEGUARD PLUS',
@@ -1500,6 +1531,42 @@
                'https://assets.bridgestonetire.com/content/dam/consumer/bst/shared/tires/driveguard-plus/tilted.jpg',
             _createdOn: 1701871769710,
             _id: '7e9b1e49-7fd9-4f7e-8c8f-30e3d6e94ec4',
+         },
+         'c8c40af6-2189-486e-8135-dd938a65b588': {
+            _ownerId: '35c62d76-8152-4626-8712-eeb96381bea8',
+            carId: '59caa8a4-f0ca-436f-a563-7d68320620cf',
+            name: 'CH-RII',
+            manufacturer: 'BBS',
+            description:
+               'The manufacturer of this wheel model is BBS. A popular company in the market. You are viewing a model made of aluminum. The diameter of the rim is R22 inch. The amount of the number of holes for the rim is 5. The intended bolt-to-bolt distance for the model is 130 millimeters. The width for the model is 10 inches. Distance marked by the manufacturer: 45 mm. The central opening is 71.6 millimeters in size.',
+            imageUrl:
+               'https://progumi.bg/files_directory/root/product_img_webp/45301-45400/bbs-ch-rii-45388-1.webp?c=14112021003439',
+            _createdOn: 1702045957306,
+            _id: 'c8c40af6-2189-486e-8135-dd938a65b588',
+         },
+         '8df5d1d6-d38f-41b9-ab45-36f38d73b3e2': {
+            _ownerId: '847ec027-f659-4086-8032-5173e2f9c93a',
+            carId: '4a87787f-a602-4396-ad1b-0b9a08c58775',
+            name: 'Multimedia with navigation',
+            manufacturer: 'ZT',
+            description:
+               'This car multimedia system offers the ability to connect a rear camera, Bluetooth, WiFi for internet sharing, and USB support. With a built-in amplifier, high-resolution display, and the option to install additional programs, this kit provides modern features and comfort during travel.',
+            imageUrl:
+               'https://s13emagst.akamaized.net/products/36376/36375868/images/res_e959db32f284060e19f47fe2fc4ab534.jpg?width=450&height=450&hash=86FCCE34681B26C3752CE9EA9F51B24A',
+            _createdOn: 1702047502363,
+            _id: '8df5d1d6-d38f-41b9-ab45-36f38d73b3e2',
+         },
+         'c1ee3310-bcdc-41d9-a657-47887efbffb9': {
+            _ownerId: '847ec027-f659-4086-8032-5173e2f9c93a',
+            carId: '4a87787f-a602-4396-ad1b-0b9a08c58775',
+            name: 'Tuning Headlights',
+            manufacturer: 'Angel Eyes',
+            description:
+               'These headlights feature LED DRL and Angel Eyes for a stylish look and enhanced visibility. Equipped with H9 bulbs for both high and low beams, they come with an electric motor for easy headlight leveling, ensuring optimal road illumination and a modern aesthetic.',
+            imageUrl:
+               'https://s13emagst.akamaized.net/products/53007/53006836/images/res_903848a0c868e58b37e9197cd7534017.jpg?width=450&height=450&hash=B5361A86EDE9503D1DA53CE669CE8B2A',
+            _createdOn: 1702047880780,
+            _id: 'c1ee3310-bcdc-41d9-a657-47887efbffb9',
          },
       },
       recipes: {
