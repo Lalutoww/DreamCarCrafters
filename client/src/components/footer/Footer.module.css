@@ -8,3 +8,13 @@ footer {
    left: 0;
    width: 100%;
 }
+.about-link{
+   color: white;
+  text-decoration: none; 
+  transition: color 0.3s ease;
+}
+
+.about-link:hover{
+   color: #007bff;
+  text-decoration: underline;
+}

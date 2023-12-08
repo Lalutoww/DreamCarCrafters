@@ -19,6 +19,7 @@ import Logout from './components/logout/Logout.jsx';
 import CarEdit from './components/pages/car/car-edit/CarEdit.jsx';
 import ErrorBoundary from './components/errorBoundary/ErrorBoundary.jsx';
 import ClearDiv from './components/clearDiv/ClearDiv.jsx';
+import About from './components/pages/about/About.jsx';
 
 function App() {
    return (
@@ -30,6 +31,7 @@ function App() {
                   <Route path={Path.Home} element={<Home />} />
                   <Route path={Path.BrowseCars} element={<BrowseCars />} />
                   <Route path={Path.Details} element={<Details />} />
+                  <Route path={Path.About} element={<About />} />
                   <Route element={<GuestGuard />}>
                      <Route path={Path.Register} element={<Register />} />
                      <Route path={Path.Login} element={<Login />} />
